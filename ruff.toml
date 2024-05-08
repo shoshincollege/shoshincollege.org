@@ -1,5 +1,3 @@
-line-length = 99
-
 [lint]
 select = [
     # pycodestyle
@@ -15,3 +13,4 @@ select = [
     # isort
     "I",
 ]
+ignore = ["E501"] # line too long

@@ -1,0 +1,5 @@
+# Show exceptions and tracebacks on errors
+export DEBUG=1
+
+# Used by Django to encrypt session login cookies
+export SECRET_KEY=xxx

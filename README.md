@@ -41,6 +41,8 @@ ruff check --fix .
 
 ## Deploy
 
+Every commit on branch `main` auto-deploys. To deploy manually:
+
 ```sh
 cd ansible/
 ansible-playbook playbook.yaml -v

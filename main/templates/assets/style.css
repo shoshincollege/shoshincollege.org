@@ -20,6 +20,8 @@
     --yellow: #FFFACF;
 }
 
+html, body { margin: 0; }
+
 body { font-family: 'Grenette Variable Pro', sans-serif; line-height: 1.2; }
 
 h1 { font-weight: normal; font-size: 40px; line-height: 1.5; }
@@ -32,9 +34,8 @@ h2 { font-weight: normal; font-size: 32px; }
     h2 { font-size: 28px; }
 }
 
-section { max-width: 640px; margin: 0 auto; font-size: 20px; }
-@media (max-width: 600px) {
-    section { font-size: 18px; }
+@media (max-width: 640px) {
+    p { padding: 8px; }
 }
 
 /* nav */
@@ -54,7 +55,7 @@ nav a:hover { text-decoration: underline; }
 #hero {
     margin: auto;
     padding: 100px 0 160px;
-    background: url({% static 'park.png' %}) no-repeat center / contain;
+    background: url({% static '/img/park.png' %}) no-repeat center / contain;
 }
 @media (max-width: 1200px) {
     #hero { padding: 0 0 160px; }
@@ -83,4 +84,26 @@ nav a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
     #panel { margin: 100px auto 0; }
     #panel blockquote { font-size: 19px; margin: 20px; padding: 1px;}
+}
+
+#overview { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+@media (max-width: 600px) {
+    overview { font-size: 18px; }
+}
+
+#london {
+    background: #FFFACFcc;
+    padding: 64px 0;
+    display: flex;
+    justify-content: center;
+}
+#londontext {
+    max-width: 300px;
+    font-size: 30px;
+    text-align: center;
+    transform: translateX(-32px);
+}
+@media (max-width: 650px) {
+    #london > div { flex-direction: column; }
+    #londontext { transform: unset; }
 }

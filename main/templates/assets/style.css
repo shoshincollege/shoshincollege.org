@@ -1,0 +1,86 @@
+{% load static %}
+
+/* fonts */
+@font-face {
+    font-family: 'Grenette Variable Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: url('{% static "/fonts/grenette-variable-proportional-pro.woff2" %}') format('woff2');
+}
+@font-face {
+    font-family: 'Grenette Variable Pro';
+    font-style: italic;
+    font-weight: normal;
+    src: url('{% static "/fonts/grenette-variable-italic-pro.woff2" %}') format('woff2');
+}
+
+/* general */
+:root {
+    --red: #DC1414;
+    --yellow: #FFFACF;
+}
+
+body { font-family: 'Grenette Variable Pro', sans-serif; line-height: 1.2; }
+
+h1 { font-weight: normal; font-size: 40px; line-height: 1.5; }
+@media (max-width: 1000px) {
+    h1 { font-size: 34px; }
+}
+
+h2 { font-weight: normal; font-size: 32px; }
+@media (max-width: 1000px) {
+    h2 { font-size: 28px; }
+}
+
+section { max-width: 640px; margin: 0 auto; font-size: 20px; }
+@media (max-width: 600px) {
+    section { font-size: 18px; }
+}
+
+/* nav */
+nav { border-bottom: 1px solid black; padding: 16px 0; text-align: center; }
+nav a { margin: 0 16px; text-decoration: none; color: black; }
+nav a:hover { text-decoration: underline; }
+@media (max-width: 660px) {
+    nav a { display: inline-block; padding: 8px 0; }
+}
+
+/* landing */
+#herocontainer { margin: 32px 0 64px; text-align: center; }
+@media (max-width: 1200px) {
+    #herocontainer { margin: 32px 0 0 }
+}
+
+#hero {
+    margin: auto;
+    padding: 100px 0 160px;
+    background: url({% static 'park.png' %}) no-repeat center / contain;
+}
+@media (max-width: 1200px) {
+    #hero { padding: 0 0 160px; }
+}
+@media (max-width: 900px) {
+    #hero { padding: 0 0 80px; }
+}
+@media (max-width: 800px) {
+    #hero { padding: 0 0 40px; }
+}
+@media (max-width: 600px) {
+    #hero { background: none; }
+}
+
+#hero-header {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+@media (max-width: 1200px) {
+    #hero-header { padding-top: 64px; }
+}
+
+#panel { max-width: 700px; margin: 140px auto 0; background: #FFFACFcc; }
+#panel blockquote { font-size: 22px; text-align: left; padding: 8px 0; }
+@media (max-width: 600px) {
+    #panel { margin: 100px auto 0; }
+    #panel blockquote { font-size: 19px; margin: 20px; padding: 1px;}
+}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shoshin College</title>
+        <meta name="description" content="an experimental learning co-op in london, uk">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            {% include 'assets/style.css' %}
+        </style>
+    </head>
+
+    <body>
+        {% if messages %}
+        <aside>
+            {% for message in messages %}
+            <div {% if message.tags %}class="alert-{{ message.tags }}"{% endif %}>{{ message|safe }}</div>
+            {% endfor %}
+        </aside>
+        {% endif %}
+
+        <nav style="text-transform: uppercase;">
+            <a href="{% url 'index' %}" style="color: var(--red);">Shoshin College</a>
+            <a href="">About</a>
+            <a href="">Classes</a>
+            <a href="">Team</a>
+            <a href="">Ideas</a>
+            <a href="">News</a>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

@@ -24,6 +24,8 @@ html, body { margin: 0; }
 
 body { font-family: 'Grenette Variable Pro', sans-serif; line-height: 1.2; }
 
+a { color: black; }
+
 h1 { font-weight: normal; font-size: 40px; line-height: 1.5; }
 @media (max-width: 1000px) {
     h1 { font-size: 34px; }

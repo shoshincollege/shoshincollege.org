@@ -38,3 +38,10 @@ Lint:
 ```sh
 ruff check --fix .
 ```
+
+## Deploy
+
+```sh
+cd ansible/
+ansible-playbook playbook.yaml -v
+```

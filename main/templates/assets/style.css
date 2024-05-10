@@ -38,6 +38,12 @@ h2 { font-weight: normal; font-size: 32px; }
     p { padding: 8px; }
 }
 
+section { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+@media (max-width: 600px) {
+    section { font-size: 18px; }
+}
+section h2 { text-align: center; margin: 64px 32px; }
+
 /* nav */
 nav { border-bottom: 1px solid black; padding: 16px 0; text-align: center; }
 nav a { margin: 0 16px; text-decoration: none; color: black; }
@@ -84,11 +90,6 @@ nav a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
     #panel { margin: 100px auto 0; }
     #panel blockquote { font-size: 19px; margin: 20px; padding: 1px;}
-}
-
-#overview { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
-@media (max-width: 600px) {
-    overview { font-size: 18px; }
 }
 
 #london {

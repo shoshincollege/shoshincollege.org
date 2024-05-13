@@ -14,24 +14,49 @@
     src: url('{% static "/fonts/grenette-variable-italic-pro.woff2" %}') format('woff2');
 }
 
+@font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('{% static "/fonts/InterVariable.woff2" %}') format('woff2');
+}
+@font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('{% static "/fonts/InterVariable-Italic.woff2" %}') format('woff2');
+}
+
 /* general */
 :root {
     --red: #DC1414;
-    --yellow: #FFFACF;
+    --yellow: #FFFACFcc;
 }
 
 html, body { margin: 0; }
 
-body { font-family: 'Grenette Variable Pro', sans-serif; line-height: 1.2; }
+body { font-family: InterVariable, sans-serif; line-height: 1.2; }
 
 a { color: black; }
 
-h1 { font-weight: normal; font-size: 40px; line-height: 1.5; }
+/* headings */
+h1 {
+    font-family: 'Grenette Variable Pro';
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 1.5;
+}
 @media (max-width: 1000px) {
     h1 { font-size: 34px; }
 }
 
-h2 { font-weight: normal; font-size: 32px; }
+h2 {
+    font-family: 'Grenette Variable Pro';
+    font-weight: normal;
+    font-size: 32px;
+}
 @media (max-width: 1000px) {
     h2 { font-size: 28px; }
 }
@@ -47,15 +72,21 @@ section { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
 section h2 { text-align: center; margin: 64px 32px; }
 
 /* nav */
-nav { border-bottom: 1px solid black; padding: 16px 0; text-align: center; }
+nav {
+    font-size: 19px;
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    text-align: center;
+}
 nav a { margin: 0 16px; text-decoration: none; color: black; }
 nav a:hover { text-decoration: underline; }
 @media (max-width: 660px) {
     nav a { display: inline-block; padding: 8px 0; }
 }
 
-/* landing */
-#herocontainer { margin: 32px 0 64px; text-align: center; }
+/* landing hero */
+#herocontainer { text-align: center; }
 @media (max-width: 1200px) {
     #herocontainer { margin: 32px 0 0 }
 }
@@ -80,32 +111,70 @@ nav a:hover { text-decoration: underline; }
 
 #hero-header {
     max-width: 700px;
-    margin: 0 auto;
-    padding-top: 100px;
+    margin: 160px auto 160px;
 }
 @media (max-width: 1200px) {
     #hero-header { padding-top: 64px; }
 }
+#hero-header h1 {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #FFFFFF75;
+    backdrop-filter: blur(2px);
+}
 
-#panel { max-width: 700px; margin: 140px auto 0; background: #FFFACFcc; }
-#panel blockquote { font-size: 22px; text-align: left; padding: 8px 0; }
+/* landing panel quote */
+#panel {
+    max-width: 700px;
+    margin: 64px auto 0;
+    border-left: 8px solid #999c;
+    background: #d3d3d338;
+}
+#panel blockquote {
+    font-size: 21px;
+    line-height: 1.4;
+    text-align: left;
+    padding: 8px 0;
+}
 @media (max-width: 600px) {
     #panel { margin: 100px auto 0; }
     #panel blockquote { font-size: 19px; margin: 20px; padding: 1px;}
 }
 
+/* landing overview list */
+#overview {
+    max-width: 640px;
+    margin: 0 auto 64px;
+}
+#overview p {
+    font-size: 22px;
+    color: #929292;
+    margin-bottom: 42px;
+}
+#overview span {
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* landing location section */
 #london {
-    background: #FFFACFcc;
+    background: var(--yellow);
     padding: 64px 0;
     display: flex;
     justify-content: center;
 }
 #londontext {
     max-width: 300px;
-    font-size: 30px;
     text-align: center;
     transform: translateX(-32px);
 }
+#londontext a {
+    font-family: 'Grenette Variable Pro';
+    font-size: 30px;
+    text-decoration: none;
+}
+#londontext a:hover { text-decoration: underline; }
 @media (max-width: 650px) {
     #london > div { flex-direction: column; }
     #londontext { transform: unset; }

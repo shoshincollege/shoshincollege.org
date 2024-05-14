@@ -7,6 +7,7 @@
         <title>Shoshin College</title>
         <meta name="description" content="an experimental learning co-op in london, uk">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% include 'assets/favicon.html' %}
         <style>
             {% include 'assets/style.css' %}
         </style>
@@ -21,8 +22,8 @@
         </aside>
         {% endif %}
 
-        <nav style="text-transform: uppercase;">
-            <a href="{% url 'index' %}" style="color: var(--red);">Shoshin College</a>
+        <nav>
+            <a href="{% url 'index' %}" style="color: #3D6D75;">Shoshin College</a>
             <a href="">About</a>
             <a href="">Classes</a>
             <a href="">Team</a>

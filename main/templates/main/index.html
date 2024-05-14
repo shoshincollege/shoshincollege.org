@@ -4,19 +4,23 @@
 
 {% block content %}
 <div id="herocontainer">
-    <div id="hero">
-        <div id="hero-header">
+    <div id="herobg">
+        <div id="heroheader">
             <h1>
-                Shoshin College is an experimental learning co&#8209;operative
+                Shoshin College is an
+                <span id="heroheader-largeletters">
+                    experimental&nbsp; &nbsp;learning
+                </span>
+                <span id="heroheader-smallletters">
+                    experimental learning
+                </span>
+                co&#8209;operative
             </h1>
+            <div style="margin-top: 64px;">
+                <a href="" class="cta">See our Fall 2024 Courses »</a>
+            </div>
         </div>
     </div>
-</div>
-
-<div style="text-align: center; font-size: 32px; margin: 48px auto;">
-    <a href="" style="color: #CA5252;">
-        See our Fall 2024 Courses →
-    </a>
 </div>
 
 <div id="panel">
@@ -27,7 +31,7 @@
             When we have no thought of achievement, no thought  of self, we
             are true beginners. Then we can really learn something.
         </p>
-        <footer style="margin-bottom: 16px;">
+        <footer style="margin-bottom: 16px; color: #929292;">
             —Shunryū Suzuki,
             <cite>Zen Mind, Beginner's Mind</cite>
         </footer>
@@ -109,93 +113,127 @@
     <h2>
         Beginners Forever
     </h2>
-    <p>
-        <strong>Shoshin</strong> is the concept of <em>beginner's mind</em> in
+    <p style="color: #646464;">
+        <strong style="color: black;">Shoshin</strong> is the concept of <em>beginner's mind</em> in
         Zen Buddhism. A beginner’s mind is open to all possibilities and
         thus capable of better learning. In the beginner’s mind there is no
         sense of internal achievement. Instead, there is curiosity to
         understand. In the beginner’s mind there is no judgement: there is no
         preconception of how things should be — thus there can be no judgement.
     </p>
-    <p>
+    <p style="color: #646464">
         The book that introduced this concept to the West is <em>Zen Mind, Beginner's Mind</em>,
         written in 1970 by
         Shunryū Suzuki, the founder of San Francisco Zen Center and a key figure
         in Western Buddhism.
     </p>
-    <p>
+    <p style="color: #646464;">
         The concept of shoshin — beginner’s mind — is the foundation of Shoshin College.
     </p>
+    <div style="text-align: center; margin-top: 48px;">
+        <a href="" class="cta">See our Fall 2024 Courses »</a>
+    </div>
 </section>
 
-<div style="background: #DC141444; text-align: center; padding: 32px 0;">
+<div id="newsletter">
     <h2>Stay In Touch</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="email" title="email" placeholder="email">
+    </form>
 </div>
 
-<section>
+<div id="values">
     <h2>
         Our Values
     </h2>
-    <p>
-        <strong>Inclusivity.</strong> Even if our new college has a specific
-        location that not everyone can attend or a fee that not everyone can
-        pay, we still aim to be inclusive and welcome as many people as
-        possible.
-    </p>
 
-    <p>
-        <strong>Craftsmanship.</strong> We are fascinated by craft, by art, by
-        high aesthetics and high quality. We aim to become better at what we
-        do. We don't expect us to already be good, only to want to become
-        better.
-    </p>
+    <div class="values-item">
+        <div class="values-item-title">Inclusivity</div>
+        <div class="values-item-description">
+            Even if our new college has a specific location that not everyone
+            can attend or a fee that not everyone can pay, we still aim to be
+            inclusive and welcome as many people as possible.
+        </div>
+    </div>
 
-    <p>
-        <strong>Playfulness.</strong> It might seem that seriousness is fundamental
-        to high quality work and learning but I'm certain the opposite is true.
-        Playfulness and humour is not only how we can laugh at ourselves and notice
-        (and accept) our unavoidable defects but it is also how we can just have
-        fun!
-    </p>
+    <div class="values-item">
+        <div class="values-item-title">Craftsmanship</div>
+        <div class="values-item-description">
+            We are fascinated by craft, by art, by high aesthetics and high
+            quality. We aim to become better at what we do. We don't expect us
+            to already be good, only to want to become better.
+        </div>
+    </div>
 
-    <p>
-        <strong>Generosity.</strong> Deals and transactions are the fair way to
-        work. Alas, they are also boring exchanges that make sure everybody's egos
-        are respected. We value and deeply utilise fair exchanges in how we work.
-        But the unexpected joy of a gift is superior.
-    </p>
+    <div class="values-item">
+        <div class="values-item-title">Playfulness</div>
+        <div class="values-item-description">
+            It might seem that seriousness is fundamental to high quality work
+            and learning but I'm certain the opposite is true.  Playfulness and
+            humour is not only how we can laugh at ourselves and notice (and
+            accept) our unavoidable defects but it is also how we can just have
+            fun!
+        </div>
+    </div>
 
-    <p>
-        <strong>Democracy.</strong> We aspire for democratic principles in
-        governance, administration, organisation. We value consent and consensus
-        and we disallow ourselves from taking actions that will cause pain to
-        someone. We also aspire for democracy in the frame of knowledge. We have no
-        interest in a teacher providing an expert's absolution on matters. Instead:
-        may there be debate amongst everyone, one which results in everyone
-        understanding the other’s position.
-    </p>
+    <div class="values-item">
+        <div class="values-item-title">Generosity</div>
+        <div class="values-item-description">
+            Deals and transactions are the fair way to work. Alas, they are also
+            boring exchanges that make sure everybody's egos are respected. We
+            value and deeply utilise fair exchanges in how we work.  But the
+            unexpected joy of a gift is superior.
+        </div>
+    </div>
 
-    <p>
-        <strong>Exploration.</strong> What's the point of a learning institution
-        unless we are curious to explore the unknown? Whether it's unknown to us or
-        to everyone is irrelevant.
-    </p>
+    <div class="values-item">
+        <div class="values-item-title">Democracy</div>
+        <div class="values-item-description">
+            We aspire for democratic principles in governance, administration,
+            organisation. We value consent and consensus and we disallow
+            ourselves from taking actions that will cause pain to someone. We
+            also aspire for democracy in the frame of knowledge. We have no
+            interest in a teacher providing an expert's absolution on matters.
+            Instead: may there be debate amongst everyone, one which results in
+            everyone understanding the other’s position.
+        </div>
+    </div>
 
-    <p>
-        <strong>Community.</strong> Being together, learning together,
-        collaborating together, celebrating together. We know we can do a lot
-        alone; we are excited for what we can do collectively. We know we can
-        make things for ourselves; we are excited to make things for everyone —
-        in the service of the advancement of the commons.
-    </p>
-</section>
+    <div class="values-item">
+        <div class="values-item-title">Exploration</div>
+        <div class="values-item-description">
+            What's the point of a learning institution
+            unless we are curious to explore the unknown? Whether it's unknown to us or
+            to everyone is irrelevant.
+        </div>
+    </div>
 
-<footer style="background: var(--yellow); color: #888; text-align: center; line-height: 1.5; padding: 64px 0 32px;">
-    <div style="font-family: sans-serif; transform: rotate(180deg);">©</div>
+    <div class="values-item">
+        <div class="values-item-title">Community</div>
+        <div class="values-item-description">
+            Being together, learning together, collaborating together,
+            celebrating together. We know we can do a lot alone; we are excited
+            for what we can do collectively. We know we can make things for
+            ourselves; we are excited to make things for everyone — in the
+            service of the advancement of the commons.
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+        <a href="" class="cta">See our Fall 2024 Courses »</a>
+    </div>
+</div>
+
+<footer id="footer">
+    <img src="{% static '/img/logo.png' %}" alt="logo" width="148px">
+
+    <div style="font-family: sans-serif; transform: rotate(180deg); font-size: 20px; line-height: 1.2;">©</div>
+
     Shoshin College
     <br>London, UK
     <br>No Rights Reserved
     <br>CC0 1.0 Public Domain Dedication
-    <br><a style="color: #888;" href="https://github.com/shoshincollege/shoshincollege.org">Source code</a>
+    <br><a style="color: #888;" href="https://github.com/shoshincollege/shoshincollege.org">Source Code</a>
 </footer>
 {% endblock %}

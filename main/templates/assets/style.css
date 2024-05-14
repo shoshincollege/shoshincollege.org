@@ -30,15 +30,8 @@
 }
 
 /* general */
-:root {
-    --red: #DC1414;
-    --yellow: #FFFACFcc;
-}
-
 html, body { margin: 0; }
-
 body { font-family: InterVariable, sans-serif; line-height: 1.2; }
-
 a { color: black; }
 
 /* headings */
@@ -46,6 +39,7 @@ h1 {
     font-family: 'Grenette Variable Pro';
     font-weight: normal;
     font-size: 40px;
+    margin: 24px 0;
     line-height: 1.5;
 }
 @media (max-width: 1000px) {
@@ -56,6 +50,7 @@ h2 {
     font-family: 'Grenette Variable Pro';
     font-weight: normal;
     font-size: 32px;
+    margin: 24px 0;
 }
 @media (max-width: 1000px) {
     h2 { font-size: 28px; }
@@ -73,54 +68,66 @@ section h2 { text-align: center; margin: 64px 32px; }
 
 /* nav */
 nav {
-    font-size: 19px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    font-size: 18px;
     text-transform: uppercase;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000aa;
     padding: 20px 0;
     text-align: center;
+    text-wrap: balance;
 }
 nav a { margin: 0 16px; text-decoration: none; color: black; }
 nav a:hover { text-decoration: underline; }
-@media (max-width: 660px) {
-    nav a { display: inline-block; padding: 8px 0; }
+@media (max-width: 700px) {
+    nav { background: transparent; padding: 8px; }
+    nav a { display: inline-block; padding: 8px 0; font-size: 16px; }
 }
 
 /* landing hero */
-#herocontainer { text-align: center; }
+#herocontainer { text-align: center; margin-top: 64px; }
 @media (max-width: 1200px) {
     #herocontainer { margin: 32px 0 0 }
 }
+@media (max-width: 600px) {
+    #herocontainer { margin: 0 }
+}
 
-#hero {
+#herobg {
     margin: auto;
     padding: 100px 0 160px;
     background: url({% static '/img/park.png' %}) no-repeat center / contain;
 }
-@media (max-width: 1200px) {
-    #hero { padding: 0 0 160px; }
+@media (max-width: 1600px) {
+    #herobg { padding: 0 0 160px; background-size: cover; }
 }
 @media (max-width: 900px) {
-    #hero { padding: 0 0 80px; }
+    #herobg { padding: 0 0 80px; }
 }
 @media (max-width: 800px) {
-    #hero { padding: 0 0 40px; }
-}
-@media (max-width: 600px) {
-    #hero { background: none; }
+    #herobg { padding: 0 0 40px; }
 }
 
-#hero-header {
+#heroheader {
     max-width: 700px;
-    margin: 160px auto 160px;
+    margin: 132px auto 336px;
 }
-@media (max-width: 1200px) {
-    #hero-header { padding-top: 64px; }
+@media (max-width: 1600px) {
+    #heroheader { margin-top: 64px; padding-top: 128px; }
 }
-#hero-header h1 {
-    display: inline-block;
-    padding: 8px 12px;
-    background: #FFFFFF75;
-    backdrop-filter: blur(2px);
+#heroheader h1 {
+    display: inline;
+    padding: 4px 12px;
+    background: white;
+}
+#heroheader-largeletters { display: inline; }
+#heroheader-smallletters { display: none; }
+@media (max-width: 600px) {
+    #heroheader-largeletters { display: none; }
+    #heroheader-smallletters { display: inline; }
 }
 
 /* landing panel quote */
@@ -137,9 +144,24 @@ nav a:hover { text-decoration: underline; }
     padding: 8px 0;
 }
 @media (max-width: 600px) {
-    #panel { margin: 100px auto 0; }
+    #panel { margin: 0 auto; }
     #panel blockquote { font-size: 19px; margin: 20px; padding: 1px;}
 }
+
+/* landing cta buttons */
+.cta {
+    display: inline-block;
+    text-decoration: none;
+    background: #3D6D75;
+    color: white;
+    padding: 8px 16px;
+    font-size: 22px;
+    border: 4px solid #3D6D7575;
+    border-radius: 32px;
+    line-height: 1.4;
+    transition: 0.25s;
+}
+.cta:hover { background: #3D6D75ee; }
 
 /* landing overview list */
 #overview {
@@ -151,6 +173,9 @@ nav a:hover { text-decoration: underline; }
     color: #929292;
     margin-bottom: 42px;
 }
+@media (max-width: 600px) {
+    #overview p { font-size: 19px; }
+}
 #overview span {
     color: black;
     font-weight: 700;
@@ -159,7 +184,7 @@ nav a:hover { text-decoration: underline; }
 
 /* landing location section */
 #london {
-    background: var(--yellow);
+    background: #FFFACFcc;
     padding: 64px 0;
     display: flex;
     justify-content: center;
@@ -178,4 +203,70 @@ nav a:hover { text-decoration: underline; }
 @media (max-width: 650px) {
     #london > div { flex-direction: column; }
     #londontext { transform: unset; }
+}
+
+/* landing newsletter form */
+#newsletter {
+    background: #3d6d7544;
+    text-align: center;
+    padding: 32px 0 48px;
+}
+#newsletter form { margin: auto; center; max-width: 448px; }
+#newsletter input {
+    width: 100%;
+    font-size: 18px;
+    border: 0;
+    padding: 4px 8px;
+    margin: 24px 0;
+    box-sizing: border-box;
+}
+@media (max-width: 448px) {
+    #newsletter input { width: 80%; margin: 8px 0; }
+}
+
+/* landing values section */
+#values { max-width: 800px; margin: 0 auto 64px; font-size: 20px; }
+@media (max-width: 800px) {
+    #values { padding-right: 8px; font-size: 18px; }
+}
+@media (max-width: 600px) {
+    #values { font-size: 18px; }
+}
+#values h2 { text-align: center; margin: 64px 32px; }
+@media (max-width: 600px) {
+    #values h2 { margin: 64px 32px 32px; }
+}
+.values-item {
+    display: flex;
+    margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+    .values-item { flex-direction: column; }
+}
+.values-item-title {
+    width: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 32px;
+}
+@media (max-width: 600px) {
+    .values-item-title { width: 100%; margin: 16px 0; text-align: center; }
+}
+.values-item-description {
+    max-width: 600px;
+    color: #646464;
+}
+@media (max-width: 600px) {
+    .values-item-description { padding: 8px; text-align: center; }
+}
+
+/* footer */
+#footer {
+    background: #FFFACFcc;
+    color: #888;
+    text-align: center;
+    line-height: 1.5;
+    padding: 64px 0 32px;
 }

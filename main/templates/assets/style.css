@@ -34,6 +34,22 @@ html, body { margin: 0; }
 body { font-family: InterVariable, sans-serif; line-height: 1.3; }
 a { color: black; }
 
+/* all pages */
+section { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+@media (max-width: 600px) {
+    section { font-size: 18px; }
+}
+section h2 { text-align: center; margin: 64px 32px; }
+section p, section li { color: #646464; }
+section a { color: #646464; }
+section a:hover { color: #000; }
+#section-title {
+    text-align: center;
+    margin: 176px 0 96px;
+    padding-bottom: 96px;
+    border-bottom: 1px solid black;
+}
+
 /* headings */
 h1 {
     font-family: 'Grenette Variable Pro';
@@ -76,6 +92,7 @@ nav {
     padding: 20px 0;
     text-align: center;
     text-wrap: balance;
+    z-index: 10;
 }
 nav a { margin: 0 16px; text-decoration: none; color: black; }
 nav a:hover { text-decoration: underline; }

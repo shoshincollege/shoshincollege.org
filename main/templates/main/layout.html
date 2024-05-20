@@ -24,10 +24,9 @@
 
         <nav>
             <a href="{% url 'index' %}" style="color: #3D6D75;">Shoshin College</a>
-            <a href="">About</a>
-            <a href="">Classes</a>
-            <a href="">Team</a>
-            <a href="">Ideas</a>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a target="_blank" href="https://shoshincollege.notion.site/Classes-Fall-2024-72c20e12164e4f13b4c3d6182fe74f0d">Classes</a>
             <a href="">News</a>
         </nav>
         {% block content %}

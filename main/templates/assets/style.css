@@ -49,6 +49,15 @@ section a:hover { color: #000; }
     padding-bottom: 96px;
     border-bottom: 1px solid black;
 }
+section blockquote {
+    margin: 0;
+    padding: 1px 24px;
+    border-left: 8px solid #999c;
+    background: #d3d3d338;
+    line-height: 1.4;
+    text-align: left;
+}
+section blockquote p { padding: 0; }
 
 /* articles / news / ideas / blog sections */
 #articles .article-list-title {

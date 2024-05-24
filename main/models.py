@@ -1,7 +1,8 @@
 import mistune
-
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -42,9 +43,9 @@ class Article(models.Model):
         markdown = mistune.create_markdown(plugins=["task_lists", "footnotes"])
         return markdown(self.body)
 
-    #def get_absolute_url(self):
-    #    path = reverse("article_detail", kwargs={"slug": self.slug})
-    #    return f"//{self.owner.username}.{settings.CANONICAL_HOST}{path}"
+    def get_absolute_url(self):
+        path = reverse("news_detail", kwargs={"slug": self.slug})
+        return f"{settings.CANONICAL_URL}{path}"
 
     def __str__(self):
         return f"{self.id}: {self.title}"

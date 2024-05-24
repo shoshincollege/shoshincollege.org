@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="articles">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <div id="section-title">
+            <h1 itemprop="name headline">{{ object.title }}</h1>
+        </div>
+
+        <section>
+            <div itemprop="articleBody">
+                {{ object.body_as_html|safe }}
+            </div>
+        </section>
+    </article>
+</div>
+
+{% endblock %}

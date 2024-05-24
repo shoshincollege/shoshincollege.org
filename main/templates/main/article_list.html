@@ -1,0 +1,46 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>News</h1>
+</div>
+
+<section id="articles">
+
+    {% for article in article_list %}
+
+    <article itemscope itemtype="http://schema.org/BlogPosting" style="margin-bottom: 128px;">
+        <h2 itemprop="name headline" class="article-list-title">
+            <a href="{% url 'news_detail' article.slug %}">
+                {{ article.title }}
+            </a>
+        </h2>
+
+        <div style="text-align: center; margin-bottom: 48px;">
+            <small>
+                {% if article.is_published %}
+                <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
+                    {{ article.published_at|date:'F j, Y' }}
+                </time>
+                {% else %}
+                <span style="color: grey;">NOT PUBLISHED</span>
+                {% endif %}
+
+                {% if request.user.is_authenticated and request.user.is_superuser %}
+                | <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
+                {% endif %}
+            </small>
+        </div>
+
+        <div itemprop="articleBody">
+            {{ article.body_as_html|safe }}
+        </div>
+    </article>
+
+    {% empty %}
+
+    <em>(no articles)</em>
+    {% endfor %}
+
+</section>
+{% endblock %}

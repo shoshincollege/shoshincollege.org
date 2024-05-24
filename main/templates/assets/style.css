@@ -39,8 +39,8 @@ section { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
 @media (max-width: 600px) {
     section { font-size: 18px; }
 }
-section h2 { text-align: center; margin: 64px 32px; }
-section p, section li { color: #646464; }
+section h2 { text-align: center; margin: 64px 8px; }
+section p, section li, section time { color: #646464; }
 section a { color: #646464; }
 section a:hover { color: #000; }
 #section-title {
@@ -49,6 +49,23 @@ section a:hover { color: #000; }
     padding-bottom: 96px;
     border-bottom: 1px solid black;
 }
+
+/* articles / news / ideas / blog sections */
+#articles .article-list-title {
+    font-family: 'Grenette Variable Pro';
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 32px;
+}
+#article
+#articles .article-list-title a { color: black; }
+#articles h2 {
+    font-family: InterVariable;
+    text-align: left;
+    margin: 32px 0 0;
+    font-size: 26px;
+}
+#articles #section-title { margin-bottom: 48px; }
 
 /* headings */
 h1 {

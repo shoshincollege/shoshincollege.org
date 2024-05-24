@@ -37,3 +37,18 @@ class UserAdmin(DjUserAdmin):
     search_fields = ("username", "email")
 
     ordering = ["-id"]
+
+
+@admin.register(models.Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "title",
+        "slug",
+        "published_at",
+        "created_at",
+        "updated_at",
+    )
+    list_display_links = ("id", "title", "slug")
+
+    ordering = ["-id"]

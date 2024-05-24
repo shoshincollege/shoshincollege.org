@@ -27,7 +27,7 @@
             <a href="{% url 'index' %}">Home</a>
             <a href="{% url 'about' %}">About</a>
             <a target="_blank" href="https://shoshincollege.notion.site/Classes-Fall-2024-72c20e12164e4f13b4c3d6182fe74f0d">Classes</a>
-            <a href="">News</a>
+            <a href="{% url 'news_list' %}">News</a>
         </nav>
         {% block content %}
         {% endblock %}

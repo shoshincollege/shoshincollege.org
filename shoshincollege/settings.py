@@ -34,6 +34,10 @@ ALLOWED_HOSTS = [
     "shoshincollege.org",
 ]
 
+CANONICAL_URL = "https://shoshincollege.org"
+if DEBUG:
+    CANONICAL_URL = "http://localhost:8000"
+
 
 # Application definition
 

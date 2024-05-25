@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>Stay In Touch</h1>
+</div>
+
+<section>
+    <form method="post" action="{% url 'subscribe' %}">
+        <p>
+            <label for="email">Email:</label>
+            {{ form.email.errors }}
+            <input type="email" id="email" name="email" required>
+        </p>
+
+        {% csrf_token %}
+
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+{% endblock %}

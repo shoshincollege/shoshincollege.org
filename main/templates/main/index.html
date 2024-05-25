@@ -137,9 +137,9 @@
 
 <div id="newsletter">
     <h2>Stay In Touch</h2>
-    <form method="post">
+    <form method="post" action="{% url 'subscribe' %}">
         {% csrf_token %}
-        <input type="email" title="email" placeholder="email">
+        <input type="email" name="email" placeholder="email">
     </form>
 </div>
 

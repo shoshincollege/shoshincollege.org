@@ -14,21 +14,22 @@
     </head>
 
     <body>
-        {% if messages %}
-        <aside>
-            {% for message in messages %}
-            <div {% if message.tags %}class="alert-{{ message.tags }}"{% endif %}>{{ message|safe }}</div>
-            {% endfor %}
-        </aside>
-        {% endif %}
-
         <nav>
             <a href="{% url 'index' %}" style="color: #3D6D75;">Shoshin College</a>
             <a href="{% url 'index' %}">Home</a>
             <a href="{% url 'about' %}">About</a>
             <a target="_blank" href="https://shoshincollege.notion.site/Classes-Fall-2024-72c20e12164e4f13b4c3d6182fe74f0d">Classes ↗</a>
             <a href="{% url 'news_list' %}">News</a>
+
+            {% if messages %}
+            <aside>
+                {% for message in messages %}
+                <div {% if message.tags %}class="alert-{{ message.tags }}"{% endif %}>{{ message|safe }}</div>
+                {% endfor %}
+            </aside>
+            {% endif %}
         </nav>
+
         {% block content %}
         {% endblock %}
     </body>

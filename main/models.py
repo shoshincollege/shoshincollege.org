@@ -1,3 +1,5 @@
+import uuid
+
 import mistune
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
@@ -49,3 +51,16 @@ class Article(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.title}"
+
+
+class Subscription(models.Model):
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    unsubscribe_key = models.UUIDField(default=uuid.uuid4, unique=True)
+
+    def get_unsubscribe_url(self):
+        path = reverse("unsubscribe_key", args={self.unsubscribe_key})
+        return f"{settings.CANONICAL_URL}{path}"
+
+    def __str__(self):
+        return f"{self.id}: {self.email}"

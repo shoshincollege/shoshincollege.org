@@ -50,5 +50,15 @@ class ArticleAdmin(admin.ModelAdmin):
         "updated_at",
     )
     list_display_links = ("id", "title", "slug")
+    ordering = ["-id"]
 
+
+@admin.register(models.Subscription)
+class SubscriptionAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "email",
+        "created_at",
+    )
+    list_display_links = ("id", "email")
     ordering = ["-id"]

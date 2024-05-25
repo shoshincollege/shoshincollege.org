@@ -6,13 +6,9 @@
         <div id="section-title">
             <h1 itemprop="name headline">{{ object.title }}</h1>
             <small>
-                {% if article.is_published %}
                 <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
                     {{ article.published_at|date:'F j, Y' }}
                 </time>
-                {% else %}
-                <span style="color: grey;">NOT PUBLISHED</span>
-                {% endif %}
             </small>
         </div>
 

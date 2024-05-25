@@ -18,13 +18,9 @@
 
         <div style="text-align: center; margin-bottom: 48px;">
             <small>
-                {% if article.is_published %}
                 <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
                     {{ article.published_at|date:'F j, Y' }}
                 </time>
-                {% else %}
-                <span style="color: grey;">NOT PUBLISHED</span>
-                {% endif %}
 
                 {% if request.user.is_authenticated and request.user.is_superuser %}
                 | <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>

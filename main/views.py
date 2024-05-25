@@ -1,6 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import FormView
 
@@ -19,8 +20,11 @@ class NewsList(ListView):
     def get_queryset(self):
         if self.request.user.is_authenticated:
             return models.Article.objects.all().order_by("-published_at")
-        return models.Article.objects.filter(published_at__isnull=False).order_by(
-            "-published_at"
+        today = timezone.now().date()
+        return (
+            models.Article.objects.filter(published_at__isnull=False)
+            .filter(published_at__lte=today)
+            .order_by("-published_at")
         )
 
 

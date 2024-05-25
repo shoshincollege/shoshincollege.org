@@ -68,6 +68,7 @@ section blockquote p { padding: 0; }
 }
 #article
 #articles .article-list-title a { color: black; }
+#articles h1 { margin-bottom: 8px; }
 #articles h2 {
     font-family: InterVariable;
     text-align: left;

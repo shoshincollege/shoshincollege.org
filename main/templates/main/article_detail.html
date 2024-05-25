@@ -5,9 +5,26 @@
     <article itemscope itemtype="http://schema.org/BlogPosting">
         <div id="section-title">
             <h1 itemprop="name headline">{{ object.title }}</h1>
+            <small>
+                {% if article.is_published %}
+                <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
+                    {{ article.published_at|date:'F j, Y' }}
+                </time>
+                {% else %}
+                <span style="color: grey;">NOT PUBLISHED</span>
+                {% endif %}
+            </small>
         </div>
 
         <section>
+            {% if request.user.is_authenticated and request.user.is_superuser %}
+            <p>
+                <small>
+                    <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
+                    | <a href="{% url 'admin:main_article_changelist' %}">List</a>
+                </small>
+            </p>
+            {% endif %}
             <div itemprop="articleBody">
                 {{ object.body_as_html|safe }}
             </div>

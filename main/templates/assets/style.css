@@ -307,7 +307,7 @@ nav a:hover { text-decoration: underline; }
     box-sizing: border-box;
 }
 @media (max-width: 448px) {
-    #newsletter input { width: 80%; margin: 8px 0; }
+    #newsletter input { width: 80%; margin: 8px auto; }
 }
 
 /* landing values section */

@@ -50,11 +50,13 @@ section p, section li, section time { color: #646464; }
 section a { color: #646464; }
 section a:hover { color: #000; }
 #section-title {
+    background: #3d6d7544;
     text-align: center;
-    margin: 176px 0 96px;
+    padding-top: 168px;
     padding-bottom: 96px;
-    border-bottom: 1px solid black;
+    margin-bottom: 96px;
 }
+#section-title h1 { font-size: 48px; }
 section blockquote {
     margin: 0;
     padding: 1px 24px;

@@ -92,7 +92,9 @@ input[type="submit"]:hover {
     margin-bottom: 16px;
     font-size: 32px;
 }
-#article
+@media (max-width: 1000px) {
+    #articles .article-list-title a { font-size: 28px; }
+}
 #articles .article-list-title a { color: black; }
 #articles h1 { margin-bottom: 8px; }
 #articles h2 {

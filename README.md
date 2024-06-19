@@ -30,13 +30,13 @@ python manage.py runserver
 Format:
 
 ```sh
-ruff format .
+ruff format
 ```
 
 Lint:
 
 ```sh
-ruff check --fix .
+ruff check --fix
 ```
 
 ## Deploy

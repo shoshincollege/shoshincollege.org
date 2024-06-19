@@ -279,25 +279,24 @@ nav a:hover { text-decoration: underline; }
     display: flex;
     justify-content: center;
 }
+@media (max-width: 650px) {
+    #london > div { flex-direction: column; }
+}
 #londontext {
     max-width: 300px;
     text-align: center;
     transform: translateX(-32px);
 }
-#londontext a {
+#londontext span {
     font-family: 'Grenette Variable Pro';
     font-size: 30px;
     text-decoration: none;
 }
-#londontext a:hover { text-decoration: underline; }
-@media (max-width: 650px) {
-    #london > div { flex-direction: column; }
-    #londontext { transform: unset; }
-}
 
 /* landing newsletter form */
 #newsletter {
-    background: #3d6d7544;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     text-align: center;
     padding: 32px 0 48px;
 }

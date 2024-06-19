@@ -16,6 +16,10 @@ def about(request):
     return render(request, "main/about.html")
 
 
+def classes(request):
+    return render(request, "main/classes.html")
+
+
 class NewsList(ListView):
     def get_queryset(self):
         if self.request.user.is_authenticated:

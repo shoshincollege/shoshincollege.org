@@ -168,7 +168,7 @@ nav a:hover { text-decoration: underline; }
 #herobg {
     margin: auto;
     padding: 100px 0 160px;
-    background: url({% static '/img/park.png' %}) no-repeat center / contain;
+    background: url("{% static '/img/park.png' %}") no-repeat center / contain;
 }
 @media (max-width: 1600px) {
     #herobg { padding: 0 0 160px; background-size: cover; }
@@ -303,7 +303,7 @@ nav a:hover { text-decoration: underline; }
     text-align: center;
     padding: 32px 0 48px;
 }
-#newsletter form { margin: auto; center; max-width: 448px; }
+#newsletter form { margin: auto; max-width: 448px; }
 #newsletter input {
     width: 100%;
     font-size: 18px;

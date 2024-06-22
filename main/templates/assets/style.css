@@ -287,6 +287,9 @@ nav a:hover { text-decoration: underline; }
     text-align: center;
     transform: translateX(-32px);
 }
+@media (max-width: 650px) {
+    #londontext { transform: unset; }
+}
 #londontext span {
     font-family: 'Grenette Variable Pro';
     font-size: 30px;

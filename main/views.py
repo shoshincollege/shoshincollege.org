@@ -12,12 +12,16 @@ def index(request):
     return render(request, "main/index.html")
 
 
-def about(request):
-    return render(request, "main/about.html")
-
-
 def classes(request):
     return render(request, "main/classes.html")
+
+
+def coc(request):
+    return render(request, "main/code_of_conduct.html")
+
+
+def about(request):
+    return render(request, "main/about.html")
 
 
 class NewsList(ListView):

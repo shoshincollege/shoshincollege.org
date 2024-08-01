@@ -1,3 +1,0 @@
--r requirements.txt
-ansible==9.5.1
-ruff==0.4.3

@@ -17,7 +17,7 @@
                 co&#8209;operative
             </h1>
             <div style="margin-top: 64px;">
-                <a href="https://shoshincollege.substack.com/" class="cta">Check out our Courses »</a>
+                <a href="{% url 'courses' %}" class="cta">Check out our Courses »</a>
             </div>
             <div style="margin-top: 24px;">
                 <a href="https://shoshincollege.substack.com/" class="ctasecondary">Subscribe to updates »</a>
@@ -48,10 +48,6 @@
         will take place in east London in&nbsp;October to December 2024.
     </p>
     <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-    <!-- <form method="post" action="{% url 'subscribe' %}">
-        {% csrf_token %}
-        <input type="email" name="email" placeholder="email">
-    </form> -->
 </div>
 
 <div style="margin: 32px auto 128px; width: 300px; border-top: 1px solid #BFBFBF">
@@ -154,10 +150,6 @@
         in east London in&nbsp;October to December 2024.
     </p>
     <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-    <!-- <form method="post" action="{% url 'subscribe' %}">
-        {% csrf_token %}
-        <input type="email" name="email" placeholder="email">
-    </form> -->
 </div>
 
 <footer id="footer">

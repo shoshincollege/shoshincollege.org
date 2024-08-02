@@ -45,7 +45,7 @@ section { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
 @media (max-width: 600px) {
     section { font-size: 18px; }
 }
-section h2 { margin: 64px 0; }
+section h2 { margin: 64px 0 32px; }
 section p, section li, section time { color: #646464; }
 section a { color: #646464; }
 section a:hover { color: #000; }

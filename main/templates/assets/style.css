@@ -367,6 +367,9 @@ nav a:hover { text-decoration: underline; }
     .values-item-description { padding: 8px; text-align: center; }
 }
 
+/* courses page */
+#courses h2 { margin-bottom: 32px; }
+
 /* footer */
 #footer {
     background: #FFFACFcc;

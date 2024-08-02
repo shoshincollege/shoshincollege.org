@@ -12,8 +12,8 @@ def index(request):
     return render(request, "main/index.html")
 
 
-def classes(request):
-    return render(request, "main/classes.html")
+def courses(request):
+    return render(request, "main/courses.html")
 
 
 def coc(request):
@@ -22,6 +22,10 @@ def coc(request):
 
 def about(request):
     return render(request, "main/about.html")
+
+
+def values(request):
+    return render(request, "main/values.html")
 
 
 class NewsList(ListView):

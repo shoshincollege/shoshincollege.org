@@ -9,16 +9,11 @@
 
     {% for article in article_list %}
 
-    <article itemscope itemtype="http://schema.org/BlogPosting" style="margin-bottom: 128px;">
-        <h2 itemprop="name headline" class="article-list-title">
-            <a href="{% url 'news_detail' article.slug %}">
-                {{ article.title }}
-            </a>
-        </h2>
+    <div style="margin-bottom: 32px;">
 
-        <div style="text-align: center; margin-bottom: 48px;">
+        <div style="margin-top: 48px; padding: 0 8px;">
             <small>
-                <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
+                <time datetime="{{ article.published_at|date:'Y-m-d' }}">
                     {{ article.published_at|date:'F j, Y' }}
                 </time>
 
@@ -28,12 +23,12 @@
             </small>
         </div>
 
-        <div itemprop="articleBody">
-            {{ article.body_as_html|safe }}
+        <div class="article-list-title">
+            <a href="{% url 'news_detail' article.slug %}">
+                {{ article.title }}
+            </a>
         </div>
-    </article>
 
-    <div style="margin: 96px auto; width: 300px; border-top: 1px solid #BFBFBF">
     </div>
 
     {% empty %}

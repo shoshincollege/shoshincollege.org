@@ -4,48 +4,50 @@ an experimental learning co-operative
 
 ## Development
 
-This is a standard Django application.
+This is a standard [Django](https://docs.djangoproject.com/) application with
+[uv](https://github.com/astral-sh/uv).
 
-Setup and run:
+1. Setup environment variables with:
 
 ```sh
-# setup venv
-python3 -m venv .venv
-source .venv/bin/activate
-
-# setup env variables
 cp .envrc.example .envrc
 source .envrc
-
-# install dependencies
-pip install -r requirements.txt
 ```
 
-Run development server:
+2. Create database tables with:
 
 ```sh
-python manage.py runserver
+uv run manage.py migrate
 ```
 
-Format:
+3. Run development server with:
 
 ```sh
-ruff format
+uv run manage.py runserver
 ```
 
-Lint:
+## Format and lint
+
+Run Python formatting with:
 
 ```sh
-ruff check --fix
+uv run ruff format
+```
+
+Run Python linting with:
+
+```sh
+uv run ruff check --fix
 ```
 
 ## Deploy
 
-Every commit on branch `main` auto-deploys. To deploy manually:
+Every commit on branch `main` auto-deploys using GitHub Actions. To deploy manually:
 
 ```sh
 cd ansible/
-ansible-playbook playbook.yaml -v
+cp .envrc.example .envrc
+uv run ansible-playbook playbook.yaml -v
 ```
 
 ## License

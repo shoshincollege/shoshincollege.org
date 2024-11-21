@@ -11,4 +11,4 @@ export ANSIBLE_USER=
 export DEBUG=1
 
 # Used by Django to encrypt session login cookies
-export SECRET_KEY=xxx
+export SECRET_KEY=

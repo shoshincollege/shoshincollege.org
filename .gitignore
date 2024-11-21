@@ -1,6 +1,12 @@
-*.pyc
-.venv/
+# database
 db.sqlite3
-/static/
+
+# python
+*.pyc
+
+# environment
 .envrc
-.direnv/
+.venv/
+
+# generated static
+/static/

@@ -18,19 +18,19 @@ jobs:
     - name: Load SSH key
       run: |
         mkdir -p ~/.ssh/
-        echo "$SSH_KEY" > ~/.ssh/huron.key
-        chmod 600 ~/.ssh/huron.key
+        echo "$SSH_KEY" > ~/.ssh/server.key
+        chmod 600 ~/.ssh/server.key
       env:
         SSH_KEY: ${{ secrets.SSH_KEY }}
 
-    - name: Install ansible
-      run: pip install ansible==9.5.1
+    - name: Install uv
+      run: curl -LsSf https://astral.sh/uv/0.5.4/install.sh | sh
 
     - name: Run ansible
-      run: cd ansible/ && ansible-playbook playbook.yaml --start-at-task="clone"
+      run: cd ansible/ && uv run ansible-playbook playbook.yaml --start-at-task="clone"
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
-        ANSIBLE_PRIVATE_KEY_FILE: "~/.ssh/huron.key"
+        ANSIBLE_PRIVATE_KEY_FILE: "~/.ssh/server.key"
         ANSIBLE_HOST: ${{ vars.ANSIBLE_HOST }}
         ANSIBLE_USER: ${{ vars.ANSIBLE_USER }}
         DEBUG: ${{ vars.DEBUG }}

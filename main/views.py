@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
 
@@ -10,7 +10,12 @@ def index(request):
 
 
 def courses(request):
-    return render(request, "main/courses.html")
+    if request.path == "/courses/2024-fall/":
+        return render(request, "main/courses_2024_fall.html")
+    elif request.path == "/courses/2025-spring/":
+        return render(request, "main/courses_2025_spring.html")
+    else:
+        return redirect("courses_2025_spring")
 
 
 def coc(request):
@@ -21,8 +26,8 @@ def about(request):
     return render(request, "main/about.html")
 
 
-def values(request):
-    return render(request, "main/values.html")
+def philosophy(request):
+    return render(request, "main/philosophy.html")
 
 
 class NewsList(ListView):

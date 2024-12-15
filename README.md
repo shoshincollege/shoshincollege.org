@@ -1,6 +1,6 @@
 # shoshincollege.org
 
-an experimental learning co-operative
+an independent experimental school
 
 ## Development
 

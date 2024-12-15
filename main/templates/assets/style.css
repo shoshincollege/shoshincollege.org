@@ -287,7 +287,7 @@ nav a:hover { text-decoration: underline; }
 
 /* landing location section */
 #london {
-    background: #FFFACFcc;
+    background: #a2cbbc;
     padding: 64px 0;
     display: flex;
     justify-content: center;
@@ -298,7 +298,6 @@ nav a:hover { text-decoration: underline; }
 #londontext {
     max-width: 300px;
     text-align: center;
-    transform: translateX(-32px);
 }
 @media (max-width: 650px) {
     #londontext { transform: unset; }
@@ -329,7 +328,7 @@ nav a:hover { text-decoration: underline; }
     #newsletter input { width: 80%; margin: 8px auto; }
 }
 
-/* landing values section */
+/* values page */
 #values { max-width: 800px; margin: 0 auto 64px; font-size: 20px; }
 @media (max-width: 800px) {
     #values { padding-right: 8px; font-size: 18px; }
@@ -372,7 +371,6 @@ nav a:hover { text-decoration: underline; }
 
 /* footer */
 #footer {
-    background: #FFFACFcc;
     color: #888;
     text-align: center;
     line-height: 1.5;

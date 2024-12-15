@@ -298,9 +298,10 @@ nav a:hover { text-decoration: underline; }
 #londontext {
     max-width: 300px;
     text-align: center;
+    transform: translateX(8px);
 }
 @media (max-width: 650px) {
-    #londontext { transform: unset; }
+    #londontext { transform: translateY(16px); }
 }
 #londontext span {
     font-family: 'Grenette Variable Pro';

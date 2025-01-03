@@ -13,6 +13,7 @@
         name:
           - gcc
           - git
+          - rclone
           - vim
         state: present
 
@@ -70,7 +71,7 @@
     # uv
     - name: uv
       ansible.builtin.shell:
-        cmd: curl -LsSf https://astral.sh/uv/install.sh | sh
+        cmd: curl -LsSf https://astral.sh/uv/0.5.14/install.sh | sh
       become_user: deploy
 
     # repository

@@ -18,8 +18,8 @@ def courses(request):
         return redirect("courses_2025_spring")
 
 
-def coc(request):
-    return render(request, "main/code_of_conduct.html")
+def conduct(request):
+    return render(request, "main/conduct.html")
 
 
 def about(request):

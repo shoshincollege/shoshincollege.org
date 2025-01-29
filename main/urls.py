@@ -14,7 +14,7 @@ urlpatterns = [
         name="classes",
     ),
     path("philosophy/", views.philosophy, name="philosophy"),
-    path("courses/2024-fall/", views.courses, name="courses_2024_fall"),
+    path("archive/courses-2024-fall/", views.courses, name="archive"),
     path("courses/2025-spring/", views.courses, name="courses_2025_spring"),
     path("courses/", views.courses, name="courses"),
     path("conduct/", views.conduct, name="conduct"),

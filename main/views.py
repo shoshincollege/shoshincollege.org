@@ -10,7 +10,7 @@ def index(request):
 
 
 def courses(request):
-    if request.path == "/courses/2024-fall/":
+    if request.path == "/archive/courses-2024-fall/":
         return render(request, "main/courses_2024_fall.html")
     elif request.path == "/courses/2025-spring/":
         return render(request, "main/courses_2025_spring.html")

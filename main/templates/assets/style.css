@@ -148,12 +148,13 @@ nav {
     font-size: 18px;
     text-transform: uppercase;
     border-bottom: 1px solid #000000aa;
-    padding: 20px 0;
     text-align: center;
     text-wrap: balance;
     z-index: 10;
+    display: flex;
+    justify-content: center;
 }
-nav a { margin: 0 16px; text-decoration: none; color: black; }
+nav a { margin: 0 16px; text-decoration: none; color: black; padding: 20px 0; }
 nav a:hover { text-decoration: underline; }
 @media (max-width: 700px) {
     nav { padding: 8px; border-color: white; }

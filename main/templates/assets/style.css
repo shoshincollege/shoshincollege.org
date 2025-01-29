@@ -156,9 +156,12 @@ nav {
 }
 nav a { margin: 0 16px; text-decoration: none; color: black; padding: 20px 0; }
 nav a:hover { text-decoration: underline; }
+.nav-logo { padding: 0; align-self: center; }
 @media (max-width: 700px) {
-    nav { padding: 8px; border-color: white; }
+    nav { padding: 8px; border-color: white; display: inherit; align-self: unset;}
     nav a { display: inline-block; padding: 8px 0; font-size: 16px; }
+    .nav-logo { margin: 0; transform: translateY(5px); }
+    .nav-logo img { height: 24px; width: 24px; }
 }
 
 /* landing hero */

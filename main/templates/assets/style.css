@@ -147,7 +147,7 @@ nav {
     background: white;
     font-size: 18px;
     text-transform: uppercase;
-    border-bottom: 1px solid #000000aa;
+    border-bottom: 8px solid #ffbf00b2;
     text-align: center;
     text-wrap: balance;
     z-index: 10;
@@ -176,7 +176,7 @@ nav a:hover { text-decoration: underline; }
 #herobg {
     margin: auto;
     padding: 100px 0 160px;
-    background: url("{% static '/img/park.png' %}") no-repeat center / contain;
+    background: url("{% static '/img/park.png' %}") no-repeat center / cover;
 }
 @media (max-width: 1600px) {
     #herobg { padding: 0 0 160px; background-size: cover; }
@@ -241,7 +241,7 @@ nav a:hover { text-decoration: underline; }
     text-decoration: none;
     background: #3D6D75;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 24px;
     font-size: 22px;
     border: 4px solid #3D6D7575;
     border-radius: 32px;
@@ -256,10 +256,10 @@ nav a:hover { text-decoration: underline; }
     color: #3D6D75;
     font-size: 18px;
     text-decoration: none;
-    background: white;
+    background: #ffffffad;
     padding: 8px 16px;
     border-radius: 32px;
-    border: 1px solid #3D6D75;
+    border: 1px solid #859EA2;
 }
 
 /* landing overview list */

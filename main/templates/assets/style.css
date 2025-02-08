@@ -176,7 +176,7 @@ nav a:hover { text-decoration: underline; }
 #herobg {
     margin: auto;
     padding: 100px 0 160px;
-    background: url("{% static '/img/park.png' %}") no-repeat center / cover;
+    background: url("{% static '/img/background.jpg' %}") no-repeat center / cover;
 }
 @media (max-width: 1600px) {
     #herobg { padding: 0 0 160px; background-size: cover; }
@@ -190,7 +190,7 @@ nav a:hover { text-decoration: underline; }
 
 #heroheader {
     max-width: 700px;
-    margin: 132px auto 336px;
+    margin: 250px auto 190px;
 }
 @media (max-width: 1600px) {
     #heroheader { margin-top: 64px; padding-top: 128px; }

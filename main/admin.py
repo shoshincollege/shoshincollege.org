@@ -51,3 +51,18 @@ class ArticleAdmin(admin.ModelAdmin):
     )
     list_display_links = ("id", "title", "slug")
     ordering = ["-id"]
+
+
+@admin.register(models.Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "title",
+        "slug",
+        "semester_key",
+        "occured_at",
+        "created_at",
+        "updated_at",
+    )
+    list_display_links = ("id", "title", "slug")
+    ordering = ["-id"]

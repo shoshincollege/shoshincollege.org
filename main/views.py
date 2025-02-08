@@ -30,6 +30,14 @@ def philosophy(request):
     return render(request, "main/philosophy.html")
 
 
+def participate(request):
+    return render(request, "main/participate.html")
+
+
+def expectations(request):
+    return render(request, "main/expectations.html")
+
+
 class NewsList(ListView):
     def get_queryset(self):
         if self.request.user.is_authenticated:

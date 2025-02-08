@@ -1,0 +1,67 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>Participate</h1>
+</div>
+
+<section>
+    <p>
+        There are 5 ways to participate at Shoshin College.
+    </p>
+
+    <h2>
+        1. Spaces and Venues
+    </h2>
+    <p>
+        Help us find venues for our courses. Each course has different space and
+        equipment requirements. We are on the look out for spaces that enable seminars,
+        workshops, presentations usually with capacity of up to 10-15 people.
+    </p>
+    <p>
+        Finding free or low-cost spaces in London is hard so this is one of the most
+        important things one can contribute to.
+    </p>
+
+    <h2>
+        2. Design
+    </h2>
+    <p>
+        Do you like to design? We're always on the lookout for creative ways to reshape
+        our website, our brand identity, our marketing material.
+    </p>
+    <p>
+        Here's a fun challenge one could start with: design a poster for one of the
+        courses being offered.
+    </p>
+
+    <h2>
+        3. Marketing
+    </h2>
+    <p>
+        There are a lot of people who would be interested in Shoshin College if they
+        had heard of it. Help us spread the word! We're running online ads,
+        distributing posters and flyers around London, and talking to new and old
+        friends who would be into this.
+    </p>
+
+    <h2>
+        4. Teach a Course
+    </h2>
+    <p>
+        The valuable thing we offer is <a href="{% url 'courses' %}">courses</a>. Are
+        you excited about something? Do you find yourself constantly thinking about a
+        particular concept, reflecting on how amazing it is—yet realizing that not many
+        people have discovered its brilliance? If so, you should teach a course on this
+        topic at Shoshin College.
+    </p>
+
+    <h2>
+        5. Take a Course
+    </h2>
+    <p>
+        The main focus of Shoshin College is <a href="{% url 'courses' %}">courses</a>.
+        Do you spot anything exciting in the current semester? Sign up!
+    </p>
+</section>
+{% endblock content %}

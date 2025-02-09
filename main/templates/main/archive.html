@@ -8,7 +8,9 @@
 <section id="courses">
     {% for course in course_list %}
     <h2>
-        {{ course.title }}
+        <a href="{% url 'course_detail' course.slug %}">
+            {{ course.title }}
+        </a>
     </h2>
     <p style="color: grey;">
         Course dates: {{ course.occured_at|date:"F Y" }}
@@ -17,7 +19,7 @@
         {{ course.overview_as_html|safe }}
     </div>
     <div style="display: block;">
-        <a href="" class="btn">Course Details »</a>
+        <a href="{% url 'course_detail' course.slug %}" class="btn">Course Details »</a>
     </div>
     {% endfor %}
 </section>

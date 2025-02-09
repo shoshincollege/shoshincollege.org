@@ -23,8 +23,14 @@
     </p>
 
     {% for course in course_list %}
-    <h2>{{ course.title }}</h2>
-    <div style="color: grey;">Course dates: {{ course.occured_at|date:"F Y" }}</div>
+    <h2>
+        <a href="{% url 'course_detail' course.slug %}">
+            {{ course.title }}
+        </a>
+    </h2>
+    <div style="color: grey;">
+        Course dates: {{ course.occured_at|date:"F Y" }}
+    </div>
     <div>
         {{ course.overview_as_html|safe }}
     </div>

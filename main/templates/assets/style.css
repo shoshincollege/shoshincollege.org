@@ -154,13 +154,26 @@ nav {
     display: flex;
     justify-content: center;
 }
-nav a { margin: 0 16px; text-decoration: none; color: black; padding: 20px 0; }
-nav a:hover { text-decoration: underline; }
-.nav-logo { padding: 0; align-self: center; }
+nav > div {
+    display: flex;
+    justify-content: center;
+}
+nav > div > a {
+    margin: 0 16px;
+    text-decoration: none;
+    color: black;
+    padding: 20px 0;
+}
+nav > div > a:hover { text-decoration: underline; }
+.nav-logo {
+    padding: 0 10px;
+    align-self: center;
+    transform: translateY(3px);
+}
 @media (max-width: 700px) {
-    nav { padding: 8px; border-color: white; display: inherit; align-self: unset;}
-    nav a { display: inline-block; padding: 8px 0; font-size: 16px; }
-    .nav-logo { margin: 0; transform: translateY(5px); }
+    nav { padding: 8px; display: inherit; }
+    nav > div > a { display: inline-block; padding: 8px 0; font-size: 16px; }
+    .nav-logo { margin: 0; transform: translateY(1px); }
     .nav-logo img { height: 24px; width: 24px; }
 }
 
@@ -179,13 +192,20 @@ nav a:hover { text-decoration: underline; }
     background: url("{% static '/img/background.jpg' %}") no-repeat center / cover;
 }
 @media (max-width: 1600px) {
-    #herobg { padding: 0 0 160px; background-size: cover; }
+    #herobg {
+        padding: 0 0 160px;
+    }
 }
 @media (max-width: 900px) {
-    #herobg { padding: 0 0 80px; }
+    #herobg {
+        padding: 0 0 80px;
+    }
 }
 @media (max-width: 800px) {
-    #herobg { padding: 0 0 40px; }
+    #herobg {
+        padding: 0 0 40px;
+        background: url("{% static '/img/background.jpg' %}") no-repeat left / cover;
+    }
 }
 
 #heroheader {
@@ -193,7 +213,11 @@ nav a:hover { text-decoration: underline; }
     margin: 250px auto 190px;
 }
 @media (max-width: 1600px) {
-    #heroheader { margin-top: 64px; padding-top: 128px; }
+    #heroheader {
+        margin-top: 64px;
+        margin-bottom: 64px;
+        padding-top: 128px;
+    }
 }
 #heroheader h1 {
     display: inline;

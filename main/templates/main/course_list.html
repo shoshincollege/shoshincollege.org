@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>Courses</h1>
+</div>
+
+<section id="courses">
+    <h2>Spring 2025 Semester</h2>
+
+    <ul>
+        <li>3 sessions per course (either over 1 or 3 days)</li>
+        <li>Each course costs £35</li>
+        <li>Classes take place between February and April 2025</li>
+        <li>Location in central/east London</li>
+    </ul>
+    <p>
+        We hope you find these courses intriguing!
+    </p>
+    <p>
+        Apply for our courses on luma:
+        <a href="https://lu.ma/shoshincollege">https://lu.ma/shoshincollege</a>
+    </p>
+
+    {% for course in course_list %}
+    <h2>{{ course.title }}</h2>
+    <div style="color: grey;">Course dates: {{ course.occured_at|date:"F Y" }}</div>
+    <div>
+        {{ course.overview_as_html|safe }}
+    </div>
+    <div>
+        <a href="{% url 'course_detail' course.slug %}" class="btn">Course Details »</a>
+    </div>
+    {% endfor %}
+
+    <h2>Past Semesters</h2>
+    <p>
+        See our <a href="{% url 'archive' %}">Archive</a>.
+    </p>
+</section>
+{% endblock content %}

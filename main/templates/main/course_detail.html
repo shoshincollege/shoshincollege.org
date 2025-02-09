@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>{{ course.title }}</h1>
+</div>
+
+<section id="courses">
+    {% if course.apply_url %}
+    <p style="font-weight: bold; border-left: 23px solid #3D6D75; display: block; padding-left: 6px;">
+        Sign up for this course here:
+        <a href="{{ course.apply_url }}" target="_blank">{{ course.apply_url }}</a>
+    </p>
+    {% endif %}
+
+    <div>
+        {{ course.body_as_html|safe }}
+    </div>
+    {% if course.apply_url %}
+    <div style="display: block; margin-top: 32px;">
+        <a href="{{ course.apply_url }}" class="btn" target="_blank">Sign up »</a>
+    </div>
+    {% else %}
+    <p>
+        Registrations open soon.
+    </p>
+    {% endif %}
+
+    <h2>Teacher Profile</h2>
+    <div>
+        {{ course.teacher_as_html|safe }}
+    </div>
+
+    <h2>Other courses</h2>
+    <p>
+        Go back to the <a href="{% url 'course_list' %}">current semester</a> page.
+    </p>
+</section>
+{% endblock content %}

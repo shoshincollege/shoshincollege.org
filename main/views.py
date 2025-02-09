@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
 
@@ -9,13 +9,28 @@ def index(request):
     return render(request, "main/index.html")
 
 
-def courses(request):
-    if request.path == "/archive/courses-2024-fall/":
-        return render(request, "main/courses_2024_fall.html")
-    elif request.path == "/courses/2025-spring/":
-        return render(request, "main/courses_2025_spring.html")
-    else:
-        return redirect("courses_2025_spring")
+class ArchiveList(ListView):
+    model = models.Course
+    template_name = "main/archive.html"
+
+    def get_queryset(self):
+        return super().get_queryset().all().order_by("-occured_at")
+
+
+class CourseList(ListView):
+    model = models.Course
+
+    def get_queryset(self):
+        return (
+            super()
+            .get_queryset()
+            .filter(semester_key="spring-2025")
+            .order_by("occured_at")
+        )
+
+
+class CourseDetail(DetailView):
+    model = models.Course
 
 
 def conduct(request):

@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+<div id="section-title">
+    <h1>Course Archive</h1>
+</div>
+
+<section id="courses">
+    {% for course in course_list %}
+    <h2>
+        {{ course.title }}
+    </h2>
+    <p style="color: grey;">
+        Course dates: {{ course.occured_at|date:"F Y" }}
+    </p>
+    <div>
+        {{ course.overview_as_html|safe }}
+    </div>
+    <div style="display: block;">
+        <a href="" class="btn">Course Details »</a>
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

@@ -54,7 +54,7 @@ section a:hover { color: #000; }
     text-align: center;
     padding-top: 168px;
     padding-bottom: 96px;
-    margin-bottom: 96px;
+    margin-bottom: 64px;
 }
 #section-title h1 { font-size: 48px; }
 section blockquote {
@@ -84,6 +84,22 @@ input[type="submit"]:hover {
     color: white;
 }
 .errorlist { font-size: 18px; }
+
+/* buttons */
+.btn {
+    display: inline-block;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 32px;
+    background: #3D6D75E5;
+    color: white;
+    transition: 0.3s;
+}
+.btn:hover {
+    color: white;
+    background: #3D6D75;
+}
 
 /* articles / news / ideas / blog sections */
 #articles .article-list-title {
@@ -394,9 +410,6 @@ nav > div > a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
     .values-item-description { padding: 8px; text-align: center; }
 }
-
-/* courses page */
-#courses h2 { margin-bottom: 32px; }
 
 /* footer */
 #footer {

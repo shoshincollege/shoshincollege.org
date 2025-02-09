@@ -55,9 +55,16 @@ class Course(models.Model):
     occured_at = models.DateField()  # date of first session
     title = models.CharField(max_length=300)
     slug = models.CharField(max_length=300, unique=True)
+    overview = models.TextField()
     body = models.TextField()
     teacher = models.TextField()
-    semester_key = models.CharField(max_length=50, default="Spring 2025")
+    semester_key = models.CharField(max_length=50, default="spring-2025")
+    apply_url = models.URLField(null=True, blank=True)
+
+    @property
+    def overview_as_html(self):
+        markdown = mistune.create_markdown(plugins=["task_lists", "footnotes"])
+        return markdown(self.overview)
 
     @property
     def body_as_html(self):

@@ -9,7 +9,7 @@
     {% for course in course_list %}
     <h2>
         <a href="{% url 'course_detail' course.slug %}">
-            {{ course.title }}
+            {{ course.title }} [{{ course.semester_key_display }} Semester]
         </a>
     </h2>
     <p style="color: grey;">

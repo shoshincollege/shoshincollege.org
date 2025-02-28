@@ -76,5 +76,15 @@ class Course(models.Model):
         markdown = mistune.create_markdown(plugins=["task_lists", "footnotes"])
         return markdown(self.teacher)
 
+    @property
+    def semester_key_display(self):
+        if not self.semester_key:
+            return ""
+        parts = self.semester_key.split("-")
+        if len(parts) != 2:
+            return self.semester_key
+        season, year = parts
+        return f"{season.capitalize()} {year}"
+
     def __str__(self):
         return f"{self.id}: {self.title}"

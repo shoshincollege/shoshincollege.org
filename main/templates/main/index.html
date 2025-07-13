@@ -16,11 +16,8 @@
                 </span>
                 school
             </h1>
-            <div style="margin-top: 64px;">
+            <div id="herocta">
                 <a href="{% url 'course_list' %}" class="cta">Courses »</a>
-            </div>
-            <div style="margin-top: 24px;">
-                <a href="{% url 'participate' %}" class="ctasecondary">Other ways to participate »</a>
             </div>
         </div>
     </div>
@@ -42,15 +39,49 @@
 </div>
 
 <div id="newsletter" style="border: none;">
-    <p style="box-sizing: border-box; max-width: 560px; margin: 32px auto 32px; font-size: 22px; line-height: 1.5;">
-        The <a href="{% url 'course_list' %}">current semester</a>
-        is taking place in <span style="white-space: nowrap;">central/east</span>
-        London between February and April 2025.
-    </p>
     <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
 </div>
 
-<div style="margin: 32px auto 128px; width: 300px; border-top: 1px solid #BFBFBF">
+<div style="margin: 32px auto 100px; width: 300px; border-top: 1px solid #BFBFBF">
+</div>
+
+<div id="current-courses">
+    <h2>
+        Fall 2025 Semester
+    </h2>
+    <p>
+        These are our courses for the Fall 2025 semester, taking place in
+        September through November in London.
+    </p>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 32px 0;">
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td style="padding: 8px 0;">
+                    <a href="{% url 'course_detail' course.slug %}">
+                        {{ course.title }}
+                    </a>
+                </td>
+                <td style="padding: 8px 0; color: #929292;">
+                    {{ course.occured_at|date:"F Y" }}
+                </td>
+                <td style="padding: 8px 0;">
+                    {% if course.apply_url %}
+                    <a href="{{ course.apply_url }}" target="_blank" class="btn" style="font-size: 14px; padding: 4px 12px;">Sign&nbsp;up</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="text-align: center; margin-top: 64px;">
+        <a href="{% url 'course_list' %}" class="btn">All Courses »</a>
+    </div>
+</div>
+
+<div style="margin: 128px auto 128px; width: 300px; border-top: 1px solid #BFBFBF">
 </div>
 
 <div id="withus">

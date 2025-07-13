@@ -198,18 +198,18 @@ nav > div > a:hover { text-decoration: underline; }
 @media (max-width: 1200px) {
     #herocontainer { margin: 32px 0 0 }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #herocontainer { margin: 0 }
 }
 
 #herobg {
     margin: auto;
-    padding: 100px 0 160px;
-    background: url("{% static '/img/background.jpg' %}") no-repeat center / cover;
+    padding: 50px 0 60px;
+    background: url("{% static '/img/background.webp' %}") no-repeat center / cover;
 }
 @media (max-width: 1600px) {
     #herobg {
-        padding: 0 0 160px;
+        padding: 0 0 100px;
     }
 }
 @media (max-width: 900px) {
@@ -220,18 +220,18 @@ nav > div > a:hover { text-decoration: underline; }
 @media (max-width: 800px) {
     #herobg {
         padding: 0 0 40px;
-        background: url("{% static '/img/background.jpg' %}") no-repeat left / cover;
+        background: url("{% static '/img/background.webp' %}") no-repeat left / cover;
     }
 }
 
 #heroheader {
     max-width: 700px;
-    margin: 250px auto 190px;
+    margin: 180px auto 100px;
 }
 @media (max-width: 1600px) {
     #heroheader {
-        margin-top: 64px;
-        margin-bottom: 64px;
+        margin-top: 32px;
+        margin-bottom: 0;
         padding-top: 128px;
     }
 }
@@ -245,6 +245,11 @@ nav > div > a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
     #heroheader-largeletters { display: none; }
     #heroheader-smallletters { display: inline; }
+}
+
+#herocta { margin-top: 64px; }
+@media (max-width: 1600px) {
+    #herocta { margin-top: 32px; }
 }
 
 /* landing panel quote */
@@ -372,6 +377,14 @@ nav > div > a:hover { text-decoration: underline; }
 @media (max-width: 448px) {
     #newsletter input { width: 80%; margin: 8px auto; }
 }
+
+/* landing current courses section */
+#current-courses { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+@media (max-width: 600px) {
+    #current-courses { font-size: 18px; padding: 0 4px; }
+}
+#current-courses h2 { text-align: center; margin: 64px 32px; }
+#current-courses p { color: #646464; text-align: center; }
 
 /* values page */
 #values { max-width: 800px; margin: 0 auto 64px; font-size: 20px; }

@@ -18,7 +18,6 @@ urlpatterns = [
     path("courses/<slug:slug>/", views.CourseDetail.as_view(), name="course_detail"),
     path("archive/", views.ArchiveList.as_view(), name="archive"),
     path("conduct/", views.conduct, name="conduct"),
-    path("participate/", views.participate, name="participate"),
     path("expectations/", views.expectations, name="expectations"),
     path("about/", views.about, name="about"),
     path("news/", views.NewsList.as_view(), name="news_list"),

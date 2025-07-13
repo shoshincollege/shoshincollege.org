@@ -6,7 +6,10 @@ from main import models
 
 
 def index(request):
-    return render(request, "main/index.html")
+    courses = models.Course.objects.filter(semester_key="fall-2025").order_by(
+        "occured_at"
+    )
+    return render(request, "main/index.html", {"courses": courses})
 
 
 class ArchiveList(ListView):
@@ -24,7 +27,7 @@ class CourseList(ListView):
         return (
             super()
             .get_queryset()
-            .filter(semester_key="spring-2025")
+            .filter(semester_key="fall-2025")
             .order_by("occured_at")
         )
 
@@ -43,10 +46,6 @@ def about(request):
 
 def philosophy(request):
     return render(request, "main/philosophy.html")
-
-
-def participate(request):
-    return render(request, "main/participate.html")
 
 
 def expectations(request):

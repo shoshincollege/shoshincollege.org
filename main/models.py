@@ -58,7 +58,7 @@ class Course(models.Model):
     overview = models.TextField()
     body = models.TextField()
     teacher = models.TextField()
-    semester_key = models.CharField(max_length=50, default="spring-2025")
+    semester_key = models.CharField(max_length=50, default="fall-2025")
     apply_url = models.URLField(null=True, blank=True)
 
     @property

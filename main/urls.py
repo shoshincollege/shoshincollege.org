@@ -3,7 +3,7 @@ from django.views.generic.base import RedirectView
 
 from main import views
 
-FEEDBACK_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeWBKJVxev8e4DwWKaHXynqBEt1hkipnEo6Jgdn99m9p_ymOQ/viewform"
+FEEDBACK_URL = "https://docs.google.com/forms/d/1WmH1FCbbpcLzABt2WgxMVhKbotpS_s9EsL_-Z1mSAwI/viewform"
 
 urlpatterns = [
     path("", views.index, name="index"),

@@ -4,81 +4,71 @@
 
 {% block content %}
 <div id="herocontainer">
-    <div id="herobg">
-        <div id="heroheader">
-            <h1>
-                Shoshin College is an
-                <span id="heroheader-largeletters">
-                    independent&nbsp; &nbsp;experimental
-                </span>
-                <span id="heroheader-smallletters">
-                    independent experimental
-                </span>
-                school
-            </h1>
-            <div id="herocta">
-                <a href="{% url 'course_list' %}" class="cta">Courses »</a>
-            </div>
+    <div id="heroheader">
+        <h1>
+            Shoshin College
+        </h1>
+        <p class="hero-subtitle">
+            Shoshin College is an independent experimental school in London, UK — in-person only.
+        </p>
+        <div class="hero-cta">
+            <a href="#current-courses" class="cta-primary">Explore Courses</a>
+            <a href="{% url 'about' %}" class="cta-secondary">Learn More</a>
         </div>
     </div>
+</div>
+
+<div id="current-courses">
+    <div class="courses-header">
+        <h2>Fall 2025 Semester</h2>
+        <p class="courses-subtitle">
+            Taking place in September through November in central London
+        </p>
+    </div>
+
+    <div class="courses-grid">
+        {% for course in courses %}
+        {% if course.apply_url %}
+        <div class="course-card">
+            <div class="course-card-header">
+                <h3 class="course-card-title">
+                    <a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a>
+                </h3>
+                <div class="course-card-date">{{ course.occured_at|date:"M Y" }}</div>
+            </div>
+            <div class="course-card-footer">
+                {% if course.apply_url %}
+                <a href="{{ course.apply_url }}" target="_blank" class="course-signup-btn">Sign Up</a>
+                {% endif %}
+                <a href="{% url 'course_detail' course.slug %}" class="course-learn-more">Learn More</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div id="newsletter" style="border: none; margin: 128px auto 128px;">
+    <h2>Subscribe To Updates</h2>
+    <p style="box-sizing: border-box; max-width: 600px; margin: auto auto 16px;">
+        Sign up to our Substack publication to receive the latest news and updates.
+    </p>
+    <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <div id="panel">
     <blockquote>
         <p>
-            In the beginner’s mind there is no thought, “I have attained
-            something.” All self-centered thoughts  limit our vast mind.
+            In the beginner's mind there is no thought, "I have attained
+            something." All self-centered thoughts  limit our vast mind.
             When we have no thought of achievement, no thought  of self, we
             are true beginners. Then we can really learn something.
         </p>
         <footer>
             —Shunryū Suzuki,
-            <cite>Zen Mind, Beginner’s Mind</cite>
+            <cite>Zen Mind, Beginner's Mind</cite>
         </footer>
     </blockquote>
-</div>
-
-<div id="newsletter" style="border: none;">
-    <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-</div>
-
-<div style="margin: 32px auto 100px; width: 300px; border-top: 1px solid #BFBFBF">
-</div>
-
-<div id="current-courses">
-    <h2>
-        Fall 2025 Semester
-    </h2>
-    <p>
-        These are our courses for the Fall 2025 semester, taking place in
-        September through November in London.
-    </p>
-
-    <table style="width: 100%; border-collapse: collapse; margin: 32px 0;">
-        <tbody>
-            {% for course in courses %}
-            <tr>
-                <td style="padding-top: 8px; padding-bottom: 8px; padding-right: 16px;">
-                    <a href="{% url 'course_detail' course.slug %}">
-                        {{ course.title }}
-                    </a>
-                </td>
-                <td style="padding: 8px; color: #929292; white-space: nowrap;">
-                    {{ course.occured_at|date:"M Y" }}
-                </td>
-                <td style="padding-top: 8px; padding-bottom: 8px; padding-left: 16px;">
-                    {% if course.apply_url %}
-                    <a href="{{ course.apply_url }}" target="_blank" class="btn" style="font-size: 14px; padding: 4px 12px;">Sign&nbsp;up</a>
-                    {% endif %}
-                </td>
-            </tr0>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <div style="text-align: center; margin-top: 64px;">
-        <a href="{% url 'course_list' %}" class="btn">All Courses »</a>
-    </div>
 </div>
 
 <div style="margin: 128px auto 128px; width: 300px; border-top: 1px solid #BFBFBF">
@@ -188,6 +178,6 @@
     <br>London, UK
     <br>No Rights Reserved
     <br>CC0 1.0 Public Domain Dedication
-    <br><a style="color: #888;" href="https://github.com/shoshincollege/shoshincollege.org">Source Code</a>
+    <br><a style="color: #888;" target="_blank" href="https://github.com/shoshincollege/shoshincollege.org">Source Code</a>
 </footer>
 {% endblock content %}

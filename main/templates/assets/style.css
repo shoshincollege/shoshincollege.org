@@ -31,6 +31,7 @@
 
 /* general */
 html, body { margin: 0; }
+html { scroll-behavior: smooth; }
 body { font-family: InterVariable, sans-serif; line-height: 1.3; }
 a { color: black; }
 aside {
@@ -57,15 +58,80 @@ section a:hover { color: #000; }
     margin-bottom: 64px;
 }
 #section-title h1 { font-size: 48px; }
-section blockquote {
+
+blockquote {
     margin: 0;
-    padding: 1px 24px;
-    border-left: 8px solid #999c;
-    background: #d3d3d338;
-    line-height: 1.4;
+    padding: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #fafcfc 100%);
+    border: 1px solid #e5eff1;
+    border-left: 6px solid #3D6D75;
+    line-height: 1.7;
     text-align: left;
+    box-shadow: 0 12px 48px rgba(61, 109, 117, 0.08);
+    position: relative;
+    overflow: hidden;
 }
-section blockquote p { padding: 0; }
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    right: 24px;
+    font-family: 'Grenette Variable Pro';
+    font-size: 240px;
+    color: rgba(61, 109, 117, 0.08);
+    line-height: 1;
+    z-index: 1;
+    font-weight: normal;
+}
+blockquote p { 
+    padding: 48px 56px 28px;
+    font-size: 22px;
+    color: #2c4a52;
+    font-style: italic;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 3;
+    font-weight: 400;
+    font-family: 'Grenette Variable Pro';
+    line-height: 1.5;
+}
+blockquote footer {
+    font-style: normal;
+    color: #646464;
+    font-size: 18px;
+    margin: 0;
+    padding: 0 56px 48px;
+    font-weight: 500;
+    position: relative;
+    z-index: 3;
+    font-family: InterVariable;
+}
+blockquote cite {
+    font-style: italic;
+    color: #3D6D75;
+    font-weight: 600;
+}
+@media (max-width: 600px) {
+    blockquote::before {
+        font-size: 160px;
+        top: -20px;
+        right: 16px;
+    }
+    blockquote p {
+        padding: 36px 28px 20px;
+        font-size: 20px;
+    }
+    blockquote footer {
+        padding: 0 28px 36px;
+        font-size: 16px;
+    }
+}
+
+.page-container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 /* all pages: forms */
 form { max-width: 300px; margin: 0 auto; }
@@ -141,6 +207,7 @@ h2 {
     font-weight: normal;
     font-size: 32px;
     margin: 24px 0;
+    color: #3D6D75;
 }
 @media (max-width: 1000px) {
     h2 { font-size: 28px; }
@@ -163,7 +230,7 @@ nav {
     background: white;
     font-size: 18px;
     text-transform: uppercase;
-    border-bottom: 8px solid #ffbf00b2;
+    border-bottom: 8px solid #FF714DAB;
     text-align: center;
     text-wrap: balance;
     z-index: 10;
@@ -194,7 +261,7 @@ nav > div > a:hover { text-decoration: underline; }
 }
 
 /* landing hero */
-#herocontainer { text-align: center; margin-top: 64px; }
+#herocontainer { text-align: center; margin-top: 64px; padding: 32px 0; }
 @media (max-width: 1200px) {
     #herocontainer { margin: 32px 0 0 }
 }
@@ -239,6 +306,96 @@ nav > div > a:hover { text-decoration: underline; }
     display: inline;
     padding: 4px 12px;
     background: white;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    color: #646464;
+    margin: 32px auto 40px;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+.hero-cta {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-primary {
+    display: inline-block;
+    text-decoration: none;
+    background: #3D6D75;
+    color: white;
+    padding: 16px 32px;
+    font-size: 20px;
+    border-radius: 32px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    padding-right: 50px;
+}
+
+.cta-primary::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: translateY(-70%) rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.cta-primary:hover {
+    background: #2a5259;
+    box-shadow: 0 4px 12px rgba(61, 109, 117, 0.3);
+}
+
+.cta-primary:hover::after {
+    transform: translateY(-70%) rotate(45deg);
+    border-color: white;
+}
+
+/* chevron points right */
+.right-arrow::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.right-arrow:hover::after {
+    transform: translateY(-50%) rotate(-45deg);
+    border-color: white;
+}
+
+.cta-secondary {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    color: #3D6D75;
+    padding: 16px 32px;
+    font-size: 20px;
+    border: 2px solid #3D6D75;
+    border-radius: 32px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.cta-secondary:hover {
+    background: #3D6D75;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .hero-subtitle { font-size: 20px; margin: 24px auto 32px; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .cta-primary, .cta-secondary { font-size: 18px; padding: 14px 28px; width: 200px; text-align: center; }
+    .cta-primary { padding-right: 44px; }
+    .cta-primary::after { right: 20px; width: 6px; height: 6px; }
 }
 #heroheader-largeletters { display: inline; }
 #heroheader-smallletters { display: none; }
@@ -256,29 +413,15 @@ nav > div > a:hover { text-decoration: underline; }
 #panel {
     max-width: 700px;
     margin: 64px auto 0;
-    border-left: 8px solid #999c;
-    background: #d3d3d338;
-}
-#panel blockquote {
-    font-size: 21px;
-    line-height: 1.4;
-    text-align: left;
-    padding: 8px 0;
-}
-#panel blockquote p { padding: 0; }
-#panel blockquote footer { margin-bottom: 16px; color: #929292; }
-@media (max-width: 600px) {
-    #panel { margin: 0 auto; }
-    #panel blockquote { font-size: 18px; margin: 20px; padding: 1px;}
 }
 
 /* landing learning with us section */
-#withus { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+#withus { max-width: 700px; margin: 0 auto 64px; font-size: 20px; }
 @media (max-width: 600px) {
     #withus { font-size: 18px; }
 }
 #withus h2 { text-align: center; margin: 64px 32px; }
-#withus p { text-align: center; font-size: 22px; }
+#withus p { text-align: center; font-size: 22px; color: #646464; }
 
 /* landing cta buttons */
 .cta {
@@ -309,13 +452,14 @@ nav > div > a:hover { text-decoration: underline; }
 
 /* landing overview list */
 #overview {
-    max-width: 640px;
+    max-width: 700px;
     margin: 0 auto 64px;
 }
 #overview p {
     font-size: 22px;
-    color: #929292;
     margin-bottom: 42px;
+    color: #646464;
+    line-height: 1.5;
 }
 @media (max-width: 600px) {
     #overview p { font-size: 19px; }
@@ -327,16 +471,16 @@ nav > div > a:hover { text-decoration: underline; }
 }
 
 /* landing beginners mind */
-#beginners { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
+#beginners { max-width: 700px; margin: 0 auto 64px; font-size: 20px; }
 @media (max-width: 600px) {
     #beginners { font-size: 18px; }
 }
 #beginners h2 { text-align: center; margin: 64px 32px; }
-#beginners p { color: #646464; }
+#beginners p { color: #646464; font-size: 17.6px; line-height: 1.7; }
 
 /* landing location section */
 #london {
-    background: #a2cbbc;
+    background: #FF714DAB;
     padding: 64px 0;
     display: flex;
     justify-content: center;
@@ -374,17 +518,385 @@ nav > div > a:hover { text-decoration: underline; }
     margin: 24px 0;
     box-sizing: border-box;
 }
-@media (max-width: 448px) {
-    #newsletter input { width: 80%; margin: 8px auto; }
+
+/* current courses section */
+#current-courses {
+    max-width: 1200px;
+    margin: 64px auto 128px;
+    padding: 0 20px;
 }
 
-/* landing current courses section */
-#current-courses { max-width: 640px; margin: 0 auto 64px; font-size: 20px; }
-@media (max-width: 600px) {
-    #current-courses { font-size: 18px; padding: 0 4px; }
+.courses-header {
+    text-align: center;
+    margin-bottom: 48px;
 }
-#current-courses h2 { text-align: center; margin: 64px 32px; }
-#current-courses p { color: #646464; text-align: center; }
+
+.courses-header h2 {
+    font-size: 2.5em;
+    margin: 24px 0 16px;
+    color: #333;
+}
+@media (max-width: 768px) {
+    .courses-header h2 {
+        font-size: 2em;
+    }
+}
+
+.courses-subtitle {
+    font-size: 1.2em;
+    color: #646464;
+    margin: 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.course-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+@media (max-width: 768px) {
+    .course-card {
+        padding: 24px;
+    }
+}
+
+.course-card-header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.course-card-title {
+    margin: 0;
+    font-size: 1.4em;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.course-card-title a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.course-card-title a:hover { text-decoration: underline; }
+
+.course-card-date {
+    display: inline-block;
+    background: #f0f7f8;
+    color: #3D6D75;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-left: 16px;
+    white-space: nowrap;
+}
+
+.course-card-footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+@media (max-width: 768px) {
+    .course-card-footer {
+        flex-direction: column;
+    }
+}
+
+.course-signup-btn {
+    background: #3D6D75;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+.course-signup-btn:hover {
+    background: #2a5259;
+    transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+    .course-signup-btn {
+        text-align: center;
+        flex: 1;
+    }
+}
+
+.course-learn-more {
+    background: transparent;
+    color: #3D6D75;
+    padding: 12px 24px;
+    border: 1px solid #3D6D75;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+.course-learn-more:hover {
+    background: #3D6D75;
+    color: white;
+}
+@media (max-width: 768px) {
+    .course-learn-more {
+        text-align: center;
+        flex: 1;
+    }
+}
+
+.course-detail-bannercontainer {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.course-detail-banner {
+    background: linear-gradient(135deg, #3D6D75 0%, #2a5259 100%);
+    color: white;
+    padding: 56px 48px;
+    border-radius: 8px;
+    margin: 32px 0 64px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(61, 109, 117, 0.2);
+}
+
+.course-detail-banner.coming-soon {
+    background: linear-gradient(135deg, #646464 0%, #4a4a4a 100%);
+}
+
+.signup-banner-content h3 {
+    font-family: 'Grenette Variable Pro';
+    font-size: 1.8em;
+    margin: 0 0 16px;
+    font-weight: normal;
+}
+
+.signup-banner-content p {
+    font-size: 1.1em;
+    margin: 0 0 24px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.course-content {
+    max-width: 800px;
+    margin: 0 auto 64px;
+    font-size: 20px;
+}
+
+.course-description {
+    color: #646464;
+    line-height: 1.6;
+}
+
+.course-description h2,
+.course-description h3,
+.course-description h4 {
+    margin-top: 32px;
+}
+
+.course-description p {
+    margin-bottom: 24px;
+}
+
+.course-description ul,
+.course-description ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+}
+
+.course-description li {
+    margin-bottom: 8px;
+}
+
+.teacher-profile {
+    max-width: 800px;
+    margin: 0 auto 64px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(61, 109, 117, 0.04);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.teacher-profile-header {
+    background: #fafbfc;
+    padding: 32px 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.teacher-profile h2 {
+    margin: 0;
+    font-size: 2em;
+    color: #3D6D75;
+    font-family: 'Grenette Variable Pro';
+    font-weight: normal;
+}
+
+.teacher-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3D6D75 0%, #2a5259 100%);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(61, 109, 117, 0.2);
+    position: relative;
+}
+
+.avatar-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
+}
+
+.teacher-avatar:hover .avatar-icon {
+    opacity: 1;
+}
+
+.teacher-content {
+    padding: 24px 32px 32px;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.teacher-content h3,
+.teacher-content h4 {
+    color: #2c4a52;
+    margin-top: 28px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.teacher-content h3 {
+    font-size: 1.3em;
+    border-left: 4px solid #3D6D75;
+    padding-left: 16px;
+}
+
+.teacher-content p {
+    margin-bottom: 20px;
+}
+
+.teacher-content p:last-child {
+    margin-bottom: 0;
+}
+
+.course-navigation {
+    max-width: 800px;
+    margin: 0 auto 64px;
+}
+
+.nav-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.nav-card h3 {
+    font-family: 'Grenette Variable Pro';
+    color: #333;
+    margin: 0 0 16px;
+    font-size: 1.4em;
+}
+
+.nav-card p {
+    color: #646464;
+    margin: 0 0 24px;
+    font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 0 16px;
+    }
+
+    .course-detail-banner {
+        padding: 40px 32px;
+        margin: 24px 0 48px;
+    }
+
+    .signup-banner-content h3 {
+        font-size: 1.5em;
+    }
+
+    .course-content,
+    .teacher-profile,
+    .course-navigation {
+        font-size: 18px;
+    }
+
+    .teacher-profile-header {
+        padding: 24px 20px 16px;
+    }
+
+    .teacher-profile h2 {
+        font-size: 1.6em;
+    }
+
+    .teacher-avatar {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 16px;
+    }
+
+    .avatar-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .teacher-content {
+        padding: 20px 20px 24px;
+        font-size: 16px;
+    }
+
+    .teacher-content h3 {
+        font-size: 1.2em;
+        padding-left: 12px;
+    }
+
+    .nav-card {
+        padding: 24px;
+    }
+}
 
 /* values page */
 #values { max-width: 800px; margin: 0 auto 64px; font-size: 20px; }

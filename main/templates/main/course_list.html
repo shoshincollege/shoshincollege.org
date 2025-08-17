@@ -1,37 +1,56 @@
 {% extends 'main/layout.html' %}
 
 {% block content %}
-<div id="section-title">
-    <h1>Courses</h1>
+<div id="herocontainer">
+    <div id="heroheader">
+        <h1>Courses</h1>
+        <p class="hero-subtitle">
+            Our courses for the Fall 2025 semester. They will take place in
+            September through November in central London.
+        </p>
+    </div>
 </div>
 
-<section id="courses">
-    <p>
-        These are our courses for the Fall 2025 semester. They will take place in
-        September through November. See each one for details on content and location.
-        All of them are 3 sessions over 3 weekdays.
-    </p>
+<div class="page-container">
+    <section class="course-content">
+        <p style="text-align: center; font-size: 22px; color: #646464; margin-bottom: 48px;">
+            See each course for details on content and location.
+            All of them are 3 sessions over 3 weekdays.
+        </p>
+    </section>
+</div>
 
-    {% for course in course_list %}
-    <h2>
-        <a href="{% url 'course_detail' course.slug %}">
-            {{ course.title }}
-        </a>
-    </h2>
-    <div style="color: grey;">
-        Course dates: {{ course.occured_at|date:"F Y" }}
+<div id="current-courses" style="margin: 64px auto 128px;">
+    <div class="courses-grid">
+        {% for course in course_list %}
+        <div class="course-card">
+            <div class="course-card-header">
+                <h3 class="course-card-title">
+                    <a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a>
+                </h3>
+                <div class="course-card-date">{{ course.occured_at|date:"M Y" }}</div>
+            </div>
+            <div style="color: #646464; margin: 16px 0 24px; line-height: 1.6;">
+                {{ course.overview_as_html|safe }}
+            </div>
+            <div class="course-card-footer">
+                {% if course.apply_url %}
+                <a href="{{ course.apply_url }}" target="_blank" class="course-signup-btn">Sign Up</a>
+                {% endif %}
+                <a href="{% url 'course_detail' course.slug %}" class="course-learn-more">Course Details</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    <div>
-        {{ course.overview_as_html|safe }}
-    </div>
-    <div>
-        <a href="{% url 'course_detail' course.slug %}" class="btn">Course Details »</a>
-    </div>
-    {% endfor %}
+</div>
 
-    <h2>Past Semesters</h2>
-    <p>
-        See our <a href="{% url 'archive' %}">Archive</a>.
-    </p>
-</section>
+<div class="page-container">
+    <section class="course-navigation">
+        <div class="nav-card">
+            <h3>Past Semesters</h3>
+            <p>Explore courses from previous semesters and see what we've been learning together.</p>
+            <a href="{% url 'archive' %}" class="course-learn-more">View Archive</a>
+        </div>
+    </section>
+</div>
 {% endblock content %}

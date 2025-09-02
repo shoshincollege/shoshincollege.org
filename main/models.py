@@ -86,5 +86,9 @@ class Course(models.Model):
         season, year = parts
         return f"{season.capitalize()} {year}"
 
+    def get_absolute_url(self):
+        path = reverse("course_detail", kwargs={"slug": self.slug})
+        return f"{settings.CANONICAL_URL}{path}"
+
     def __str__(self):
         return f"{self.id}: {self.title}"

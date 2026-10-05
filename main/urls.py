@@ -7,6 +7,7 @@ FEEDBACK_URL = "https://docs.google.com/forms/d/1WmH1FCbbpcLzABt2WgxMVhKbotpS_s9
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("nature-of-mind-series/", views.nature_of_mind_series, name="nature_of_mind_series"),
     path("classes/", RedirectView.as_view(url="/courses/"), name="classes"),
     path(
         "feedback/",

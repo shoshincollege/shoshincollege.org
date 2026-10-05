@@ -6,10 +6,11 @@ from main import models
 
 
 def index(request):
-    courses = models.Course.objects.filter(semester_key="fall-2025").order_by(
-        "occured_at"
-    )
-    return render(request, "main/index.html", {"courses": courses})
+    return render(request, "main/index.html")
+
+
+def nature_of_mind_series(request):
+    return render(request, "main/nature_of_mind_series.html")
 
 
 class ArchiveList(ListView):

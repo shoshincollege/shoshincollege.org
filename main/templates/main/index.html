@@ -10,13 +10,19 @@
     <p>In person only, in London, UK.</p>
 </header>
 
-<section id="current-courses">
-    <h2>Fall 2025 Semester</h2>
-    {% for course in courses %}
-    {% include 'main/course_row.html' %}
-    {% empty %}
-    <p>There are no courses listed for this semester yet.</p>
-    {% endfor %}
+<section id="nature-of-mind-series">
+    <h2>The Nature of Mind Series</h2>
+    <p class="muted">Fall 2026 Semester</p>
+    <p>
+        We are organising a series of lectures on the nature of mind. What is the mind at its core?
+        We want to explore this from a plethora of angles, theories, philosophies.
+    </p>
+    <h3>Nature of Mind in Buddhism and Dzogchen</h3>
+    <p>
+        In the first event, Theodore Keloglou will explore the mind and the nature of mind
+        in Buddhism, with a focus on the Dzogchen tradition.
+    </p>
+    <p><a href="{% url 'nature_of_mind_series' %}">Explore the series →</a></p>
 </section>
 
 <section>
@@ -114,7 +120,7 @@
     <p>Sign up to our Substack publication to receive the latest news and updates.</p>
     <div class="actions">
         <a href="https://shoshincollege.substack.com/subscribe" target="_blank" rel="noopener" class="button">Subscribe on Substack</a>
-        <a href="{% url 'course_list' %}" class="button">Explore Courses</a>
+        <a href="{% url 'nature_of_mind_series' %}" class="button">Explore the Series</a>
     </div>
 </section>
 {% endblock content %}

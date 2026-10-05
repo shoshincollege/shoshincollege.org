@@ -6,6 +6,7 @@
         </p>
         <div class="muted">{{ course.overview_as_html|safe }}</div>
     </div>
+    {% if not archived %}
     <div class="actions">
         {% if course.apply_url %}
         <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button" aria-label="Sign Up (opens in a new tab)" title="Opens in a new tab">
@@ -15,4 +16,5 @@
         {% endif %}
         <a href="{% url 'course_detail' course.slug %}">Learn More →</a>
     </div>
+    {% endif %}
 </article>

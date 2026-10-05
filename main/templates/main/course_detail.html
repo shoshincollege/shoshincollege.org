@@ -3,6 +3,11 @@
 {% block title %}{{ course.title }} · Shoshin College{% endblock %}
 
 {% block content %}
+{% if course.is_past %}
+<aside class="course-notice" aria-label="Past course">
+    This course has ended
+</aside>
+{% endif %}
 <header class="page-header">
     <h1>{{ course.title }}</h1>
     <p class="muted">{{ course.occured_at|date:"F Y" }} · {{ course.semester_key_display }} Semester</p>
@@ -27,13 +32,12 @@
 <section class="panel">
     {% if course.apply_url %}
     <h2>Ready to Join This Course?</h2>
-    <p>Registration is open. Come hang out and explore together.</p>
+    <p>Registration is open. Come join us!</p>
     <div class="actions">
         <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button" aria-label="Sign Up Now (opens in a new tab)" title="Opens in a new tab">
             Sign Up Now
             {% include 'assets/new_tab_icon.html' %}
         </a>
-        <a href="{% url 'course_list' %}" class="button">Explore More Courses</a>
     </div>
     {% else %}
     <h2>Coming Soon</h2>

@@ -62,6 +62,10 @@ class Course(models.Model):
     apply_url = models.URLField(null=True, blank=True)
 
     @property
+    def is_past(self):
+        return self.occured_at < timezone.now().date()
+
+    @property
     def overview_as_html(self):
         markdown = mistune.create_markdown(plugins=["task_lists", "footnotes"])
         return markdown(self.overview)

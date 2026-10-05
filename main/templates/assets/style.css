@@ -32,6 +32,9 @@ h2 + article.item { padding-top: 0; }
 .item > div:first-child { flex: 1; min-width: 0; }
 .item p:last-child { margin-bottom: 0; }
 .item .actions { flex-shrink: 0; margin: 0; }
+.reading-list { display: grid; gap: 20px; margin: 0; padding: 0; list-style: none; }
+.reading-list li { margin: 0; }
+.reading-list p { margin: 0; color: #666; font-size: 14px; }
 .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 40px; }
 .feature-grid p, .values-item-description { color: #666; font-size: 14px; }
 .feature-grid p { margin: 0; }

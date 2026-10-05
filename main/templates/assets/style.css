@@ -15,10 +15,10 @@ ul, ol { padding-left: 24px; }
 li { margin-bottom: 8px; }
 time, small, .muted { color: #666; font-size: 14px; }
 .site-header { padding: 12px max(36px, calc((100% - 820px) / 2)); border-block: 1px solid #ddd; background: #f5f5f5; }
-.site-name { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 6px; color: #1a1a1a; font-size: 23px; }
+.site-name { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; color: #1a1a1a; font-size: 23px; }
 nav, .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
 nav { gap: 24px; font-size: 14px; }
-nav svg { vertical-align: -2px; }
+nav svg, .button svg { vertical-align: -2px; }
 main, .site-footer { width: calc(100% - 72px); max-width: 820px; margin: 36px auto; }
 section { margin-bottom: 40px; }
 .page-header { margin-bottom: 32px; }
@@ -27,6 +27,7 @@ section { margin-bottom: 40px; }
 .button { display: inline-block; padding: 8px 16px; border: 1px solid #ccc; background: #fafafa; color: #2f554e; font: inherit; cursor: pointer; }
 .button:hover { background: #f0f0f0; text-decoration: none; }
 .item { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 0; border-bottom: 1px solid #eee; }
+h2 + article.item { padding-top: 0; }
 .item > div:first-child { flex: 1; min-width: 0; }
 .item h3 a { color: #1a1a1a; }
 .item p:last-child { margin-bottom: 0; }

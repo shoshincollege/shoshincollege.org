@@ -8,7 +8,10 @@
     </div>
     <div class="actions">
         {% if course.apply_url %}
-        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up</a>
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button" aria-label="Sign Up (opens in a new tab)" title="Opens in a new tab">
+            Sign Up
+            {% include 'assets/new_tab_icon.html' %}
+        </a>
         {% endif %}
         <a href="{% url 'course_detail' course.slug %}">Learn More →</a>
     </div>

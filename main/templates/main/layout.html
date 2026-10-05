@@ -27,9 +27,7 @@
                 <a href="{% url 'conduct' %}">Conduct</a>
                 <a href="https://shoshincollege.substack.com/" target="_blank" rel="noopener" aria-label="Substack (opens in a new tab)" title="Opens in a new tab">
                     Substack
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="M15 3h6v6M21 3l-9 9M10 3H3v18h18v-7" />
-                    </svg>
+                    {% include 'assets/new_tab_icon.html' %}
                 </a>
             </nav>
             {% if messages %}

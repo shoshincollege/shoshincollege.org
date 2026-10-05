@@ -6,12 +6,14 @@
 <header class="page-header">
     <h1>{{ course.title }}</h1>
     <p class="muted">{{ course.occured_at|date:"F Y" }} · {{ course.semester_key_display }} Semester</p>
+    {% if course.apply_url %}
     <div class="actions">
-        {% if course.apply_url %}
-        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up</a>
-        {% endif %}
-        <a href="{% url 'course_list' %}">All Courses →</a>
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button" aria-label="Sign Up (opens in a new tab)" title="Opens in a new tab">
+            Sign Up
+            {% include 'assets/new_tab_icon.html' %}
+        </a>
     </div>
+    {% endif %}
 </header>
 <section>
     {{ course.body_as_html|safe }}
@@ -27,7 +29,10 @@
     <h2>Ready to Join This Course?</h2>
     <p>Registration is open. Come hang out and explore together.</p>
     <div class="actions">
-        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up Now</a>
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button" aria-label="Sign Up Now (opens in a new tab)" title="Opens in a new tab">
+            Sign Up Now
+            {% include 'assets/new_tab_icon.html' %}
+        </a>
         <a href="{% url 'course_list' %}" class="button">Explore More Courses</a>
     </div>
     {% else %}

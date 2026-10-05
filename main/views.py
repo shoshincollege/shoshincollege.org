@@ -44,8 +44,8 @@ def about(request):
     return render(request, "main/about.html")
 
 
-def philosophy(request):
-    return render(request, "main/philosophy.html")
+def theory(request):
+    return render(request, "main/theory.html")
 
 
 def expectations(request):

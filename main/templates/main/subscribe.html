@@ -1,22 +1,16 @@
 {% extends 'main/layout.html' %}
 
+{% block title %}Stay in Touch · Shoshin College{% endblock %}
+
 {% block content %}
-<div id="section-title">
-    <h1>Stay In Touch</h1>
-</div>
-
-<section>
-    <form method="post" action="{% url 'subscribe' %}">
-        <p>
-            <label for="email">Email:</label>
-            {{ form.email.errors }}
-            <input type="email" id="email" name="email" required>
-        </p>
-
-        {% csrf_token %}
-
-        <input type="submit" value="Submit">
-    </form>
+<header class="page-header">
+    <h1>Stay in Touch</h1>
+</header>
+<section class="panel">
+    <h2>Subscribe to Updates</h2>
+    <p>Sign up to our Substack publication to receive the latest news and updates.</p>
+    <div class="actions">
+        <a href="https://shoshincollege.substack.com/subscribe" target="_blank" rel="noopener" class="button">Subscribe on Substack</a>
+    </div>
 </section>
-
 {% endblock content %}

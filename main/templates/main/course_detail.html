@@ -1,87 +1,41 @@
 {% extends 'main/layout.html' %}
 
+{% block title %}{{ course.title }} · Shoshin College{% endblock %}
+
 {% block content %}
-<div id="herocontainer">
-    <div id="heroheader">
-        <h1>{{ course.title }}</h1>
-        <p class="hero-subtitle">{{ course.occured_at|date:"F Y" }} • {{ course.semester_key_display }} Semester</p>
+<header class="page-header">
+    <h1>{{ course.title }}</h1>
+    <p class="muted">{{ course.occured_at|date:"F Y" }} · {{ course.semester_key_display }} Semester</p>
+    <div class="actions">
         {% if course.apply_url %}
-        <div class="hero-cta">
-            <a href="{{ course.apply_url }}" target="_blank" class="cta-primary right-arrow">Sign Up</a>
-            <a href="{% url 'course_list' %}" class="cta-secondary">All Courses</a>
-        </div>
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up</a>
         {% endif %}
+        <a href="{% url 'course_list' %}">All Courses →</a>
     </div>
-</div>
-
-<div class="course-detail-bannercontainer">
+</header>
+<section>
+    {{ course.body_as_html|safe }}
+</section>
+{% if course.teacher %}
+<section>
+    <h2>Teacher Profile</h2>
+    {{ course.teacher_as_html|safe }}
+</section>
+{% endif %}
+<section class="panel">
     {% if course.apply_url %}
-    <div class="course-detail-banner">
-        <div class="signup-banner-content">
-            <h3>Ready to Join This Course?</h3>
-            <p>Registration is open. Come hang out and explore together.</p>
-            <a href="{{ course.apply_url }}" target="_blank" class="course-signup-btn">Sign Up Now →</a>
-        </div>
+    <h2>Ready to Join This Course?</h2>
+    <p>Registration is open. Come hang out and explore together.</p>
+    <div class="actions">
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up Now</a>
+        <a href="{% url 'course_list' %}" class="button">Explore More Courses</a>
     </div>
     {% else %}
-    <div class="course-detail-banner coming-soon">
-        <div class="signup-banner-content">
-            <h3>Coming Soon</h3>
-            <p>Registrations will open soon. Check back for updates.</p>
-        </div>
+    <h2>Coming Soon</h2>
+    <p>Registrations will open soon. Check back for updates.</p>
+    <div class="actions">
+        <a href="{% url 'course_list' %}" class="button">Explore More Courses</a>
     </div>
     {% endif %}
-</div>
-
-<div class="page-container">
-    <section class="course-content">
-        <div class="course-description">
-            {{ course.body_as_html|safe }}
-        </div>
-    </section>
-
-    <section class="teacher-profile">
-        <div class="teacher-profile-header">
-            <div class="teacher-avatar">
-                <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="3" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M5.5 20c0-4.418 2.985-8 6.5-8s6.5 3.582 6.5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <h2>Teacher Profile</h2>
-        </div>
-        <div class="teacher-content">
-            {{ course.teacher_as_html|safe }}
-        </div>
-    </section>
-</div>
-
-<div class="course-detail-bannercontainer">
-    {% if course.apply_url %}
-    <div class="course-detail-banner">
-        <div class="signup-banner-content">
-            <h3>Ready to Join This Course?</h3>
-            <p>Registration is open. Come hang out and explore together.</p>
-            <a href="{{ course.apply_url }}" target="_blank" class="course-signup-btn">Sign Up Now →</a>
-        </div>
-    </div>
-    {% else %}
-    <div class="course-detail-banner coming-soon">
-        <div class="signup-banner-content">
-            <h3>Coming Soon</h3>
-            <p>Registrations will open soon. Check back for updates.</p>
-        </div>
-    </div>
-    {% endif %}
-</div>
-
-<div class="page-container">
-    <section class="course-navigation">
-        <div class="nav-card">
-            <h3>Explore More Courses</h3>
-            <p>Discover other courses offered this semester</p>
-            <a href="{% url 'course_list' %}" class="course-learn-more">View All Courses</a>
-        </div>
-    </section>
-</div>
+</section>
 {% endblock content %}

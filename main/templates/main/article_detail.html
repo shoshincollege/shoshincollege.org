@@ -1,31 +1,23 @@
 {% extends 'main/layout.html' %}
 
+{% block title %}{{ article.title }} · Shoshin College{% endblock %}
+
 {% block content %}
-<div id="articles">
-    <article itemscope itemtype="http://schema.org/BlogPosting">
-        <div id="section-title">
-            <h1 itemprop="name headline">{{ object.title }}</h1>
-            <small>
-                <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">
-                    {{ article.published_at|date:'F j, Y' }}
-                </time>
-            </small>
-        </div>
-
-        <section>
-            {% if request.user.is_authenticated and request.user.is_superuser %}
-            <p>
-                <small>
-                    <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
-                    | <a href="{% url 'admin:main_article_changelist' %}">List</a>
-                </small>
-            </p>
-            {% endif %}
-            <div itemprop="articleBody">
-                {{ object.body_as_html|safe }}
-            </div>
-        </section>
-    </article>
-</div>
-
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="page-header">
+        <h1 itemprop="name headline">{{ article.title }}</h1>
+        <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished">{{ article.published_at|date:'F j, Y' }}</time>
+    </header>
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+    <p>
+        <small>
+            <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
+            | <a href="{% url 'admin:main_article_changelist' %}">List</a>
+        </small>
+    </p>
+    {% endif %}
+    <section itemprop="articleBody">
+        {{ article.body_as_html|safe }}
+    </section>
+</article>
 {% endblock content %}

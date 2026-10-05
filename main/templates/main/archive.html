@@ -1,26 +1,17 @@
 {% extends 'main/layout.html' %}
 
-{% block content %}
-<div id="section-title">
-    <h1>Course Archive</h1>
-</div>
+{% block title %}Course Archive · Shoshin College{% endblock %}
 
-<section id="courses">
+{% block content %}
+<header class="page-header">
+    <h1>Course Archive</h1>
+    <p>Explore the courses we've been learning together.</p>
+</header>
+<section>
     {% for course in course_list %}
-    <h2>
-        <a href="{% url 'course_detail' course.slug %}">
-            {{ course.title }} [{{ course.semester_key_display }} Semester]
-        </a>
-    </h2>
-    <p style="color: grey;">
-        Course dates: {{ course.occured_at|date:"F Y" }}
-    </p>
-    <div>
-        {{ course.overview_as_html|safe }}
-    </div>
-    <div style="display: block;">
-        <a href="{% url 'course_detail' course.slug %}" class="btn">Course Details »</a>
-    </div>
+    {% include 'main/course_row.html' with archived=True %}
+    {% empty %}
+    <p>There are no archived courses yet.</p>
     {% endfor %}
 </section>
 {% endblock content %}

@@ -1,152 +1,92 @@
 {% extends 'main/layout.html' %}
 
-{% load static %}
-
 {% block content %}
-<div id="herocontainer">
-    <div id="heroheader">
-        <h1>
-            Shoshin College
-        </h1>
-        <p class="hero-subtitle">
-            Shoshin College is an independent experimental school in London, UK — in-person only.
-        </p>
-        <div class="hero-cta">
-            <a href="#current-courses" class="cta-primary">Explore Courses</a>
-            <a href="{% url 'about' %}" class="cta-secondary">Learn More</a>
-        </div>
-    </div>
-</div>
+<header class="page-header">
+    <h1>An Independent Experimental School</h1>
+    <p>Shoshin College is an independent experimental school in London, UK — in-person only.</p>
+</header>
 
-<div id="current-courses">
-    <div class="courses-header">
-        <h2>Fall 2025 Semester</h2>
-        <p class="courses-subtitle">
-            Taking place in September through November in central London
-        </p>
-    </div>
+<section id="current-courses">
+    <h2>Fall 2025 Semester</h2>
+    {% for course in courses %}
+    {% include 'main/course_row.html' %}
+    {% empty %}
+    <p>There are no courses listed for this semester yet.</p>
+    {% endfor %}
+</section>
 
-    <div class="courses-grid">
-        {% for course in courses %}
-        {% if course.apply_url %}
-        <div class="course-card">
-            <div class="course-card-header">
-                <h3 class="course-card-title">
-                    <a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a>
-                </h3>
-                <div class="course-card-date">{{ course.occured_at|date:"M Y" }}</div>
-            </div>
-            <div class="course-card-footer">
-                {% if course.apply_url %}
-                <a href="{{ course.apply_url }}" target="_blank" class="course-signup-btn">Sign Up</a>
-                {% endif %}
-                <a href="{% url 'course_detail' course.slug %}" class="course-learn-more">Learn More</a>
-            </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</div>
-
-<div id="newsletter" style="border: none; margin: 128px auto 128px;">
-    <h2>Subscribe To Updates</h2>
-    <p style="box-sizing: border-box; max-width: 600px; margin: auto auto 16px;">
-        Sign up to our Substack publication to receive the latest news and updates.
-    </p>
-    <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-</div>
-
-<div id="panel">
-    <blockquote>
-        <p>
-            In the beginner's mind there is no thought, "I have attained
-            something." All self-centered thoughts  limit our vast mind.
-            When we have no thought of achievement, no thought  of self, we
-            are true beginners. Then we can really learn something.
-        </p>
-        <footer>
-            —Shunryū Suzuki,
-            <cite>Zen Mind, Beginner's Mind</cite>
-        </footer>
-    </blockquote>
-</div>
-
-<div style="margin: 128px auto 128px; width: 300px; border-top: 1px solid #BFBFBF">
-</div>
-
-<div id="withus">
-    <h2>
-        Learning With Us
-    </h2>
+<section>
+    <h2>Learning With Us</h2>
     <p>
         Shoshin College is an independent experimental school that’s
         positioning itself outside of the existing way of how learning and
         teaching works.
     </p>
-</div>
-
-<div id="overview">
-    <p>
-        <span>Universal.</span> We embrace all domains and disciplines and
-        invite everyone to teach and learn, regardless of background.
-    </p>
-
-    <p>
-        <span>Inclusive.</span> We believe in high quality work but also that
-        anyone can do high quality work. We do not exclude people because of
-        the quality of their work. We include them because we want them to
-        improve.
-    </p>
-
-    <p>
-        <span>In-person.</span> There is tons of online learning material.
-        What’s missing is humane interactions in a community of people.
-    </p>
-
-    <p>
-        <span>Ever-fluctuating.</span> We embrace iteration and invite change
-        alongside experimentation and impermanence.
-    </p>
-
-    <p>
-        <span>Unaccredited.</span> We are trying something new and in order to
-        explore it, we need not be tied down by the existing ways of how
-        learning works today.
-    </p>
-
-    <p>
-        <span>High quality.</span> We could succeed in starting a learning
-        institution but what’s interesting is to make it high quality and more
-        importantly: higher quality than the current way of learning
-        institutions.
-    </p>
-
-    <p>
-        <span>Low-cost.</span> Wealth inequality contributes to a decreasing
-        average quality of life for the Western resident. We are not interested
-        in adding to this.
-    </p>
-</div>
-
-<div id="london">
-    <div style="display: flex;">
+    <div class="feature-grid">
         <div>
-            <img src="{% static '/img/london.jpg' %}" alt="london landmark" width="300px" style="border-radius: 16px;">
+            <h3>Universal</h3>
+            <p>We embrace all domains and disciplines and
+                invite everyone to teach and learn, regardless of background.</p>
         </div>
-        <div style="display: flex; align-items: center;">
-            <div id="londontext">
-                <span>We offer in-person classes in London</span>
-            </div>
+        <div>
+            <h3>Inclusive</h3>
+            <p>We believe in high quality work but also that
+                anyone can do high quality work. We do not exclude people because of
+                the quality of their work. We include them because we want them to
+                improve.</p>
+        </div>
+        <div>
+            <h3>In-person</h3>
+            <p>There is tons of online learning material.
+                What’s missing is humane interactions in a community of people.</p>
+        </div>
+        <div>
+            <h3>Ever-fluctuating</h3>
+            <p>We embrace iteration and invite change
+                alongside experimentation and impermanence.</p>
+        </div>
+        <div>
+            <h3>Unaccredited</h3>
+            <p>We are trying something new and in order to
+                explore it, we need not be tied down by the existing ways of how
+                learning works today.</p>
+        </div>
+        <div>
+            <h3>High quality</h3>
+            <p>We could succeed in starting a learning
+                institution but what’s interesting is to make it high quality and more
+                importantly: higher quality than the current way of learning
+                institutions.</p>
+        </div>
+        <div>
+            <h3>Low-cost</h3>
+            <p>Wealth inequality contributes to a decreasing
+                average quality of life for the Western resident. We are not interested
+                in adding to this.</p>
         </div>
     </div>
-</div>
+</section>
 
-<div id="beginners">
+<blockquote>
+    <p>
+        In the beginner's mind there is no thought, "I have attained
+        something." All self-centered thoughts  limit our vast mind.
+        When we have no thought of achievement, no thought  of self, we
+        are true beginners. Then we can really learn something.
+    </p>
+    <footer>
+        —Shunryū Suzuki,
+        <cite>Zen Mind, Beginner's Mind</cite>
+    </footer>
+</blockquote>
+
+<section>
+
     <h2>
         Beginner's Mind
     </h2>
     <p>
-        <strong style="color: black;">Shoshin</strong> is the concept of <em>beginner’s mind</em> in
+        <strong>Shoshin</strong> is the concept of <em>beginner’s mind</em> in
         Zen Buddhism. A beginner’s mind is open to all possibilities and
         thus capable of better learning. In the beginner’s mind there is no
         sense of internal achievement. Instead, there is curiosity to
@@ -162,22 +102,15 @@
     <p>
         The concept of shoshin — beginner’s mind — is the foundation of Shoshin College.
     </p>
-</div>
 
-<div id="newsletter">
-    <h2>Subscribe To Updates</h2>
-    <p style="box-sizing: border-box; max-width: 600px; margin: auto auto 16px;">
-        Sign up to our Substack publication to receive the latest news and updates.
-    </p>
-    <iframe src="https://shoshincollege.substack.com/embed" width="375" height="150" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-</div>
+</section>
 
-<footer id="footer">
-    <div style="font-family: sans-serif; transform: rotate(180deg); font-size: 20px; line-height: 1.4;">©</div>
-    Shoshin College CIC
-    <br>London, UK
-    <br>No Rights Reserved
-    <br>CC0 1.0 Public Domain Dedication
-    <br><a style="color: #888;" target="_blank" href="https://github.com/shoshincollege/shoshincollege.org">Source Code</a>
-</footer>
+<section class="panel">
+    <h2>Subscribe to Updates</h2>
+    <p>Sign up to our Substack publication to receive the latest news and updates.</p>
+    <div class="actions">
+        <a href="https://shoshincollege.substack.com/subscribe" target="_blank" rel="noopener" class="button">Subscribe on Substack</a>
+        <a href="{% url 'course_list' %}" class="button">Explore Courses</a>
+    </div>
+</section>
 {% endblock content %}

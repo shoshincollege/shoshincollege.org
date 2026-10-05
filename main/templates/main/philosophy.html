@@ -1,18 +1,15 @@
 {% extends 'main/layout.html' %}
 
-{% block content %}
-<div id="herocontainer">
-    <div id="heroheader">
-        <h1>Philosophy</h1>
-        <p class="hero-subtitle">
-            The values and principles that guide our approach to learning, teaching, and building community together.
-        </p>
-    </div>
-</div>
+{% block title %}Philosophy · Shoshin College{% endblock %}
 
-<div>
-    <div id="values">
-        <h2>Our Guiding Principles</h2>
+{% block content %}
+<header class="page-header">
+    <h1>Philosophy</h1>
+    <p>The values and principles that guide our approach to learning, teaching, and building community together.</p>
+</header>
+<section>
+
+    <h2>Our Guiding Principles</h2>
 
     <div class="values-item">
         <div class="values-item-title">Inclusivity</div>
@@ -85,68 +82,71 @@
             service of the advancement of the commons.
         </div>
     </div>
-</div>
 
-<div class="page-container">
-    <section class="course-content">
-        <div class="course-description">
-            <h2 style="text-align: center; margin: 64px 0 32px;">Articles</h2>
-            <p style="text-align: center; margin-bottom: 32px;">
-                Some of our articles that further describe our philosophy:
-            </p>
+</section>
+<section>
 
-            <div style="margin-bottom: 24px;">
-                <strong>How can we include everybody if we only want to have the best?</strong><br>
-                <a href="https://shoshincollege.substack.com/p/meritocracy-and-inclusion">
-                    Meritocracy and Inclusion
-                </a>
-            </div>
+    <h2>Articles</h2>
+    <p>
+        Some of our articles that further describe our philosophy:
+    </p>
 
-            <div style="margin-bottom: 24px;">
-                <strong>Grading is a controversial topic in education. Let's briefly explore the two sides:</strong><br>
-                <a href="https://shoshincollege.substack.com/p/on-grades">
-                    On Grades
-                </a>
-            </div>
-
-            <div style="margin-bottom: 24px;">
-                <strong>Why don't we offer our classes for free?</strong><br>
-                <a href="https://shoshincollege.substack.com/p/on-tuition-fees-and-free-courses">
-                    On tuition fees and free courses
-                </a>
-            </div>
-
-            <div style="margin-bottom: 24px;">
-                <strong>Nothing that grows follows a linear path. Learning doesn't either:</strong><br>
-                <a href="https://shoshincollege.substack.com/p/expansion-and-contraction">
-                    Expansion and Contraction
-                </a>
-            </div>
+    <div class="item">
+        <div>
+            <strong>How can we include everybody if we only want to have the best?</strong><br>
+            <a href="https://shoshincollege.substack.com/p/meritocracy-and-inclusion">
+                Meritocracy and Inclusion
+            </a>
         </div>
-    </section>
-</div>
+    </div>
 
-<div id="panel">
-    <blockquote>
-        <p>
-            In the beginner’s mind there is no thought, “I have attained
-            something.” All self-centered thoughts  limit our vast mind.
-            When we have no thought of achievement, no thought  of self, we
-            are true beginners. Then we can really learn something.
-        </p>
-        <footer>
-            —Shunryū Suzuki,
-            <cite>Zen Mind, Beginner’s Mind</cite>
-        </footer>
-    </blockquote>
-</div>
+    <div class="item">
+        <div>
+            <strong>Grading is a controversial topic in education. Let's briefly explore the two sides:</strong><br>
+            <a href="https://shoshincollege.substack.com/p/on-grades">
+                On Grades
+            </a>
+        </div>
+    </div>
 
-<div id="beginners">
+    <div class="item">
+        <div>
+            <strong>Why don't we offer our classes for free?</strong><br>
+            <a href="https://shoshincollege.substack.com/p/on-tuition-fees-and-free-courses">
+                On tuition fees and free courses
+            </a>
+        </div>
+    </div>
+
+    <div class="item">
+        <div>
+            <strong>Nothing that grows follows a linear path. Learning doesn't either:</strong><br>
+            <a href="https://shoshincollege.substack.com/p/expansion-and-contraction">
+                Expansion and Contraction
+            </a>
+        </div>
+    </div>
+
+</section>
+<blockquote>
+    <p>
+        In the beginner’s mind there is no thought, “I have attained
+        something.” All self-centered thoughts  limit our vast mind.
+        When we have no thought of achievement, no thought  of self, we
+        are true beginners. Then we can really learn something.
+    </p>
+    <footer>
+        —Shunryū Suzuki,
+        <cite>Zen Mind, Beginner’s Mind</cite>
+    </footer>
+</blockquote>
+<section>
+
     <h2>
         Beginner's Mind
     </h2>
     <p>
-        <strong style="color: black;">Shoshin</strong> is the concept of <em>beginner’s mind</em> in
+        <strong>Shoshin</strong> is the concept of <em>beginner’s mind</em> in
         Zen Buddhism. A beginner’s mind is open to all possibilities and
         thus capable of better learning. In the beginner’s mind there is no
         sense of internal achievement. Instead, there is curiosity to
@@ -162,16 +162,13 @@
     <p>
         The concept of shoshin — beginner's mind — is the foundation of Shoshin College.
     </p>
-</div>
 
-<div class="page-container">
-    <section class="course-navigation">
-        <div class="nav-card">
-            <h3>Explore Our Courses</h3>
-            <p>Check out our courses and see how we put philosophy into practice.</p>
-            <a href="{% url 'course_list' %}" class="course-learn-more">View All Courses</a>
-        </div>
-    </section>
-</div>
-
+</section>
+<section class="panel">
+    <h2>Explore Our Courses</h2>
+    <p>Check out our courses and see how we put philosophy into practice.</p>
+    <div class="actions">
+        <a href="{% url 'course_list' %}" class="button">View All Courses</a>
+    </div>
+</section>
 {% endblock content %}

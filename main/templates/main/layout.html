@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Shoshin College</title>
+        <title>{% block title %}Shoshin College{% endblock %}</title>
         <meta name="description" content="Independent experimental school in London, UK.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% include 'assets/favicon.html' %}
@@ -12,32 +12,41 @@
             {% include 'assets/style.css' %}
         </style>
     </head>
-
     <body>
-        <nav>
-            <div>
-                <a href="{% url 'index' %}" class="nav-logo">
-                    <img src="{% static '/img/logo.png' %}" alt="logo" width="42px" height="42px">
-                </a>
+        <a href="#content" class="skip-link">Skip to content</a>
+        <header class="site-header">
+            <a href="{% url 'index' %}" class="site-name">
+                <img src="{% static 'img/logo.png' %}" alt="" width="32" height="32">
+                Shoshin College
+            </a>
+            <nav aria-label="Main navigation">
+                <a href="{% url 'index' %}">Home</a>
                 <a href="{% url 'course_list' %}">Courses</a>
                 <a href="{% url 'about' %}">About</a>
-            </div>
-            <div>
                 <a href="{% url 'philosophy' %}">Philosophy</a>
                 <a href="{% url 'conduct' %}">Conduct</a>
-                <a target="_blank" href="https://shoshincollege.substack.com/">Substack</a>
-            </div>
-
+                <a href="https://shoshincollege.substack.com/" target="_blank" rel="noopener" aria-label="Substack (opens in a new tab)" title="Opens in a new tab">
+                    Substack
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M15 3h6v6M21 3l-9 9M10 3H3v18h18v-7" />
+                    </svg>
+                </a>
+            </nav>
             {% if messages %}
-            <aside>
+            <aside class="notice" role="status">
                 {% for message in messages %}
-                <div {% if message.tags %}class="alert-{{ message.tags }}"{% endif %}>{{ message|safe }}</div>
+                <div>{{ message|safe }}</div>
                 {% endfor %}
             </aside>
             {% endif %}
-        </nav>
-
-        {% block content %}
-        {% endblock content %}
+        </header>
+        <main id="content">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <footer class="site-footer">
+            <p>Shoshin College CIC · London, UK</p>
+            <p>No Rights Reserved · CC0 1.0 Public Domain Dedication</p>
+        </footer>
     </body>
 </html>

@@ -1,40 +1,24 @@
 {% extends 'main/layout.html' %}
 
+{% block title %}News · Shoshin College{% endblock %}
+
 {% block content %}
-<div id="section-title">
+<header class="page-header">
     <h1>News</h1>
-</div>
-
-<section id="articles">
-
+</header>
+<section>
     {% for article in article_list %}
-
-    <div style="margin-bottom: 32px;">
-
-        <div style="margin-top: 48px; padding: 0 8px;">
-            <small>
-                <time datetime="{{ article.published_at|date:'Y-m-d' }}">
-                    {{ article.published_at|date:'F j, Y' }}
-                </time>
-
-                {% if request.user.is_authenticated and request.user.is_superuser %}
-                | <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
-                {% endif %}
-            </small>
+    <article class="item">
+        <div>
+            <h3><a href="{% url 'news_detail' article.slug %}">{{ article.title }}</a></h3>
+            <time datetime="{{ article.published_at|date:'Y-m-d' }}">{{ article.published_at|date:'F j, Y' }}</time>
         </div>
-
-        <div class="article-list-title">
-            <a href="{% url 'news_detail' article.slug %}">
-                {{ article.title }}
-            </a>
-        </div>
-
-    </div>
-
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+        <a href="{% url 'admin:main_article_change' article.id %}">Edit article</a>
+        {% endif %}
+    </article>
     {% empty %}
-
-    <em>(no articles)</em>
+    <p>No articles yet.</p>
     {% endfor %}
-
 </section>
 {% endblock content %}

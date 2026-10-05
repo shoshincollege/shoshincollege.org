@@ -1,0 +1,15 @@
+<article class="item">
+    <div>
+        <h3><a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a></h3>
+        <p class="muted">
+            {{ course.occured_at|date:"F Y" }}{% if archived %} · {{ course.semester_key_display }} Semester{% endif %}
+        </p>
+        <div class="muted">{{ course.overview_as_html|safe }}</div>
+    </div>
+    <div class="actions">
+        {% if course.apply_url %}
+        <a href="{{ course.apply_url }}" target="_blank" rel="noopener" class="button">Sign Up</a>
+        {% endif %}
+        <a href="{% url 'course_detail' course.slug %}">Learn More →</a>
+    </div>
+</article>

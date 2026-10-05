@@ -40,6 +40,12 @@ Run Python linting with:
 uv run ruff check --fix
 ```
 
+## Upgrade
+
+```
+uv sync --upgrade
+```
+
 ## Deploy
 
 Every commit on branch `main` auto-deploys using GitHub Actions. To deploy manually:
